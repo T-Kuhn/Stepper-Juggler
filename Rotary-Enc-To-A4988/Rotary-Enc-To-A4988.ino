@@ -14,7 +14,10 @@ void setup()
     pinMode(5, OUTPUT); // X dir bit
     pinMode(6, OUTPUT); // Y dir bit
     pinMode(7, OUTPUT); // Z dir bit
-    pinMode(12, INPUT); // Z limit bit
+
+    pinMode(11, OUTPUT); // A dir bit
+    pinMode(12, OUTPUT); // A step bit
+
     digitalWrite(8, 0);
 
     // - - - - - - - - - - - - - - - - - - -
@@ -41,9 +44,10 @@ ISR(TIMER1_COMPA_vect)
 {
     Encoder1.update();
 
-    digitalWrite(5, Encoder1.currentRot); // X dir bit
-    digitalWrite(6, Encoder1.currentRot); // Y dir bit
-    //digitalWrite(7, Encoder1.currentRot);  // Z dir bit
+    digitalWrite(5, 1 - Encoder1.currentRot);  // X dir bit
+    digitalWrite(6, Encoder1.currentRot);      // Y dir bit
+    digitalWrite(7, Encoder1.currentRot);      // Z dir bit
+    digitalWrite(11, 1 - Encoder1.currentRot); // A dir bit
     counter++;
 
     int pin9VoltageLevel;
@@ -56,19 +60,17 @@ ISR(TIMER1_COMPA_vect)
         pin9VoltageLevel = counter % 20;
     }
 
-    digitalWrite(2, pin9VoltageLevel); // X step bit
-    digitalWrite(3, pin9VoltageLevel); // Y step bit
-                                       //digitalWrite(4, pin9VoltageLevel); // Z step bit
-
-    //digitalWrite(2, Encoder1.count%2);
+    digitalWrite(2, pin9VoltageLevel);  // X step bit
+    digitalWrite(3, pin9VoltageLevel);  // Y step bit
+    digitalWrite(4, pin9VoltageLevel);  // Z step bit
+    digitalWrite(12, pin9VoltageLevel); // A step bit
 }
 
 void loop()
 {
-    serialPrintf("val:%d", Encoder1.count);
-
     //send all 20ms. Thus, 50 times per second.
     delay(20);
+    // serialPrintf("val:%d", Encoder1.count);
 }
 
 // Printing Values to the Serial port.
