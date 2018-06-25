@@ -147,8 +147,9 @@ void loop()
 {
     while (1)
     {
-        if (Serial.available() >= 7)
+        if (Serial.available())
         {
+            // This needs to be fixed.
             int x = Serial.parseInt();
             int y = Serial.parseInt();
             // 1. parse

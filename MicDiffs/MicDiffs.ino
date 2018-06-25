@@ -60,9 +60,10 @@ void loop()
         }
 
         Serial.print("x:");
-        Serial.println(mic12DiffCounter);
+        Serial.print(constrain(mic12DiffCounter, -200, 200));
         Serial.print("y:");
-        Serial.println(mic34DiffCounter);
+        Serial.print(constrain(mic34DiffCounter, -200, 200));
+        Serial.println("s");
 
         ff_reset = false;
         delay(100);
