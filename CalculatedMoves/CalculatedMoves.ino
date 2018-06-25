@@ -2,12 +2,19 @@
 
 int counter = 0;
 int pulseLevel;
-bool dir = true;
+bool isMovingUpwards = true;
 bool isStartingUp = true;
+
+bool moveDownRequest = true;
+bool moveUpRequest = true;
+bool moveUpFlag = true;
+bool moveDownFlag = false;
+
+bool plateIsTopPos = false;
+bool plateIsBottomPos = false;
+
 const double freq = 0.004f;
 const double amplitude = 200.0;
-
-Output<14> pin;
 
 Output<8> enablePin;
 
@@ -23,6 +30,7 @@ Output<11> aDirBit;
 
 void setup()
 {
+    Serial.begin(115200);
     enablePin = LOW;
 
     // - - - - - - - - - - - - - - - - - - -
@@ -43,38 +51,91 @@ void setup()
 
 // - - - - - - - - - - - - - - - - - - -
 // - - TIMER 1 INTERRUPT FUNCTION  - - -
-// - - - - - every 60 us - - - - - - - -
+// - - - - - every 50 us - - - - - - - -
 // - - - - - - - - - - - - - - - - - - -
 ISR(TIMER1_COMPA_vect)
 {
-    counter++;
+    dealWithRequests();
+    generatePulsLevels();
+    SetOutputs();
+}
 
+void dealWithRequests()
+{
+    if (moveUpRequest && plateIsBottomPos)
+    {
+        moveUpFlag = true;
+        isMovingUpwards = true;
+
+        moveUpRequest = false;
+        plateIsBottomPos = false;
+    }
+    else if (moveDownRequest && plateIsTopPos)
+    {
+        moveDownFlag = true;
+        isMovingUpwards = false;
+
+        moveDownRequest = false;
+        plateIsTopPos = false;
+    }
+}
+
+void generatePulsLevels()
+{
     if (isStartingUp)
     {
+        // Move all steppers up a little on start-up
+        counter++;
         pulseLevel = counter % 100;
         if (counter > 10000)
         {
+            // Finished starting up.
             counter = 0;
             isStartingUp = false;
+            plateIsBottomPos = true;
+            moveUpRequest = true;
         }
     }
-    else
+    else if (moveUpFlag)
     {
         double r = counter * freq;
         int s = (int)(amplitude * (cos(r) + 1.0));
 
+        counter++;
+
         pulseLevel = s % 2;
         if (r >= PI)
         {
+            // Finished moving up.
             counter = 0;
-            dir = !dir;
+            moveUpFlag = false;
+            plateIsTopPos = true;
         }
     }
+    else if (moveDownFlag)
+    {
+        double r = counter * freq;
+        int s = (int)(amplitude * (cos(r) + 1.0));
 
-    xDirBit = 1 - dir; // X dir bit
-    yDirBit = dir;     // Y dir bit
-    zDirBit = dir;     // Z dir bit
-    aDirBit = 1 - dir; // A dir bit
+        counter++;
+
+        pulseLevel = s % 2;
+        if (r >= PI)
+        {
+            // Finished moving down.
+            counter = 0;
+            moveDownFlag = false;
+            plateIsBottomPos = true;
+        }
+    }
+}
+
+void SetOutputs()
+{
+    xDirBit = 1 - isMovingUpwards; // X dir bit
+    yDirBit = isMovingUpwards;     // Y dir bit
+    zDirBit = isMovingUpwards;     // Z dir bit
+    aDirBit = 1 - isMovingUpwards; // A dir bit
 
     xStepBit = pulseLevel; // X step bit
     yStepBit = pulseLevel; // Y step bit
@@ -86,7 +147,18 @@ void loop()
 {
     while (1)
     {
-        pin = HIGH;
-        pin = LOW;
+        if (Serial.available() >= 7)
+        {
+            int x = Serial.parseInt();
+            int y = Serial.parseInt();
+            // 1. parse
+            // 2. pid
+            // 3. correction
+            // 4. set moveDownRequest instantly (current goal)
+            moveDownRequest = true;
+            // 5. set moveUpRequest after a certain delay (current goal)
+            delay(300);
+            moveUpRequest = true;
+        }
     }
 }

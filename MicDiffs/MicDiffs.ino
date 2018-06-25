@@ -13,7 +13,6 @@ Input<11> mic4;
 void setup()
 {
     Serial.begin(115200);
-    Serial.println("start.");
 }
 
 void loop()
@@ -60,9 +59,9 @@ void loop()
             }
         }
 
-        Serial.print("mic12 diff: ");
+        Serial.print("x:");
         Serial.println(mic12DiffCounter);
-        Serial.print("mic34 diff: ");
+        Serial.print("y:");
         Serial.println(mic34DiffCounter);
 
         ff_reset = false;
@@ -78,7 +77,7 @@ void loop()
         }
 
         ff_reset = true;
-        Serial.println("reset done.");
+        //Serial.println("reset done.");
 
         mic12DiffCounter = 0;
         mic34DiffCounter = 0;
