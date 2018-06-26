@@ -5,15 +5,15 @@ int pulseLevel;
 bool isMovingUpwards = true;
 bool isStartingUp = true;
 
-bool moveDownRequest = true;
-bool moveUpRequest = true;
+bool moveDownRequest = false;
+bool moveUpRequest = false;
 bool moveUpFlag = true;
 bool moveDownFlag = false;
 
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const double freq = 0.004f;
+const double freq = 0.001f; // value lowered for debug. real value: 0.004f
 const double amplitude = 200.0;
 
 Output<8> enablePin;
@@ -32,6 +32,7 @@ void setup()
 {
     Serial.begin(115200);
     enablePin = LOW;
+    //enablePin = HIGH;
 
     // - - - - - - - - - - - - - - - - - - -
     // - - - - -  SET UP TIMER 1 - - - - - -
@@ -149,17 +150,22 @@ void loop()
     {
         if (Serial.available())
         {
+            //String command = Serial.readStringUntil(';');
+            // clear buffer of any data left after the terminator char.
+            Serial.readString();
             // This needs to be fixed.
-            int x = Serial.parseInt();
-            int y = Serial.parseInt();
+            //int x = Serial.parseInt();
+            //int y = Serial.parseInt();
             // 1. parse
             // 2. pid
             // 3. correction
             // 4. set moveDownRequest instantly (current goal)
             moveDownRequest = true;
+            //Serial.println(command);
             // 5. set moveUpRequest after a certain delay (current goal)
-            delay(300);
+            //delay(50);
             moveUpRequest = true;
+            //Serial.println("UP");
         }
     }
 }
