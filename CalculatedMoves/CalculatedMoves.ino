@@ -1,5 +1,8 @@
 #include <DirectIO.h>
 
+// Max input size expected for one command
+#define INPUT_SIZE 16
+
 int counter = 0;
 int pulseLevel;
 bool isMovingUpwards = true;
@@ -13,7 +16,7 @@ bool moveDownFlag = false;
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const double freq = 0.001f; // value lowered for debug. real value: 0.004f
+const double freq = 0.004f; // value lowered for debug. real value: 0.004f
 const double amplitude = 200.0;
 
 Output<8> enablePin;
@@ -31,6 +34,7 @@ Output<11> aDirBit;
 void setup()
 {
     Serial.begin(115200);
+    Serial.setTimeout(20);
     enablePin = LOW;
     //enablePin = HIGH;
 
@@ -146,26 +150,39 @@ void SetOutputs()
 
 void loop()
 {
-    while (1)
+    if (Serial.available() > 0)
     {
-        if (Serial.available())
+        // Get next command from Serial (add 1 for final 0)
+        char input[INPUT_SIZE + 1];
+        byte size = Serial.readBytes(input, INPUT_SIZE);
+        // Add the final 0 to end the C string
+        input[size] = 0;
+
+        // Read each command pair
+        char *command = strtok(input, "&");
+        // Split the command in two values
+        char *separator = strchr(command, ':');
+        if (separator != 0)
         {
-            //String command = Serial.readStringUntil(';');
-            // clear buffer of any data left after the terminator char.
-            Serial.readString();
-            // This needs to be fixed.
-            //int x = Serial.parseInt();
-            //int y = Serial.parseInt();
-            // 1. parse
-            // 2. pid
-            // 3. correction
-            // 4. set moveDownRequest instantly (current goal)
+            // Actually split the string in 2: replace ':' with 0
+            *separator = 0;
+            int x = atoi(command);
+            ++separator;
+            int y = atoi(separator);
+            //Serial.println(x);
+            //Serial.println(y);
+
             moveDownRequest = true;
-            //Serial.println(command);
             // 5. set moveUpRequest after a certain delay (current goal)
-            //delay(50);
+            //delay(100);
             moveUpRequest = true;
-            //Serial.println("UP");
         }
     }
+    //String command = Serial.readStringUntil(';');
+    //int x = Serial.parseInt();
+    //int y = Serial.parseInt();
+    // 1. parse
+    // 2. pid
+    // 3. correction
+    // 4. set moveDownRequest instantly (current goal)
 }
