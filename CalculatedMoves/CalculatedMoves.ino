@@ -131,10 +131,11 @@ void moveAllUpOrDown()
         float r = counter * freq;
         float c = cos(r) + 1.0;
 
-        xStepBit = pulseFromAmplitude(xAmplitude, c);
-        yStepBit = pulseFromAmplitude(yAmplitude, c);
-        zStepBit = pulseFromAmplitude(zAmplitude, c);
-        aStepBit = pulseFromAmplitude(aAmplitude, c);
+        int pulseLevel = pulseFromAmplitude(baseAmplitude, c);
+        xStepBit = pulseLevel;
+        yStepBit = pulseLevel;
+        zStepBit = pulseLevel;
+        aStepBit = pulseLevel;
 
         if (r >= PI)
         {
@@ -164,9 +165,6 @@ void moveAllUpOrDown()
         }
     }
 }
-// let's here.
-// we got that amplitude thing.
-// it can be set from anywhere.
 
 int pulseFromAmplitude(float ampl, float c)
 {
@@ -199,8 +197,10 @@ void loop()
             //Serial.println(y);
 
             // Correcting things.
-            // newCorrection = ...;
             xAmplitude = baseAmplitude - xOldCorrection + xNewCorrection;
+            yAmplitude = baseAmplitude - yOldCorrection + yNewCorrection;
+            zAmplitude = baseAmplitude - zOldCorrection + zNewCorrection;
+            aAmplitude = baseAmplitude - aOldCorrection + aNewCorrection;
 
             xOldCorrection = xNewCorrection;
             yOldCorrection = yNewCorrection;
@@ -208,7 +208,7 @@ void loop()
             aOldCorrection = aNewCorrection;
 
             moveDownRequest = true;
-            // 5. set moveUpRequest after a certain delay (current goal)
+
             //delay(100);
             moveUpRequest = true;
         }
