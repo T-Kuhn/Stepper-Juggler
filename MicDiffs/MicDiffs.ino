@@ -59,11 +59,10 @@ void loop()
             }
         }
 
-        Serial.print("x:");
         Serial.print(constrain(mic12DiffCounter, -200, 200));
-        Serial.print("y:");
+        Serial.print(":");
         Serial.print(constrain(mic34DiffCounter, -200, 200));
-        Serial.println("s");
+        Serial.println("&");
 
         ff_reset = false;
         delay(100);

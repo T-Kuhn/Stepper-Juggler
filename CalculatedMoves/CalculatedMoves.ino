@@ -50,7 +50,6 @@ void setup()
     Serial.begin(115200);
     Serial.setTimeout(20);
     enablePin = LOW;
-    //enablePin = HIGH;
 
     // - - - - - - - - - - - - - - - - - - -
     // - - - - -  SET UP TIMER 1 - - - - - -
