@@ -4,7 +4,6 @@
 #define INPUT_SIZE 16
 
 int counter = 0;
-int pulseLevel;
 bool isMovingUpwards = true;
 bool isStartingUp = true;
 
@@ -16,8 +15,23 @@ bool moveDownFlag = false;
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const double freq = 0.004f; // value lowered for debug. real value: 0.004f
-const double amplitude = 200.0;
+const float freq = 0.004f; // value lowered for debug. real value: 0.004f
+const float baseAmplitude = 200.0;
+
+float xAmplitude = 200.0;
+float yAmplitude = 200.0;
+float zAmplitude = 200.0;
+float aAmplitude = 200.0;
+
+float xOldCorrection = 0.0;
+float yOldCorrection = 0.0;
+float zOldCorrection = 0.0;
+float aOldCorrection = 0.0;
+
+float xNewCorrection = 0.0;
+float yNewCorrection = 0.0;
+float zNewCorrection = 0.0;
+float aNewCorrection = 0.0;
 
 Output<8> enablePin;
 
@@ -61,8 +75,12 @@ void setup()
 ISR(TIMER1_COMPA_vect)
 {
     dealWithRequests();
-    generatePulsLevels();
-    SetOutputs();
+    moveAllUpOrDown();
+
+    xDirBit = 1 - isMovingUpwards; // X dir bit
+    yDirBit = isMovingUpwards;     // Y dir bit
+    zDirBit = isMovingUpwards;     // Z dir bit
+    aDirBit = 1 - isMovingUpwards; // A dir bit
 }
 
 void dealWithRequests()
@@ -85,13 +103,19 @@ void dealWithRequests()
     }
 }
 
-void generatePulsLevels()
+void moveAllUpOrDown()
 {
     if (isStartingUp)
     {
-        // Move all steppers up a little on start-up
         counter++;
-        pulseLevel = counter % 100;
+        // Move all steppers up a little on start-up
+        int pulseLevel = counter % 100;
+
+        xStepBit = pulseLevel;
+        yStepBit = pulseLevel;
+        zStepBit = pulseLevel;
+        aStepBit = pulseLevel;
+
         if (counter > 10000)
         {
             // Finished starting up.
@@ -103,12 +127,15 @@ void generatePulsLevels()
     }
     else if (moveUpFlag)
     {
-        double r = counter * freq;
-        int s = (int)(amplitude * (cos(r) + 1.0));
-
         counter++;
+        float r = counter * freq;
+        float c = cos(r) + 1.0;
 
-        pulseLevel = s % 2;
+        xStepBit = pulseFromAmplitude(xAmplitude, c);
+        yStepBit = pulseFromAmplitude(yAmplitude, c);
+        zStepBit = pulseFromAmplitude(zAmplitude, c);
+        aStepBit = pulseFromAmplitude(aAmplitude, c);
+
         if (r >= PI)
         {
             // Finished moving up.
@@ -119,12 +146,15 @@ void generatePulsLevels()
     }
     else if (moveDownFlag)
     {
-        double r = counter * freq;
-        int s = (int)(amplitude * (cos(r) + 1.0));
-
         counter++;
+        float r = counter * freq;
+        float c = cos(r) + 1.0;
 
-        pulseLevel = s % 2;
+        xStepBit = pulseFromAmplitude(xAmplitude, c);
+        yStepBit = pulseFromAmplitude(yAmplitude, c);
+        zStepBit = pulseFromAmplitude(zAmplitude, c);
+        aStepBit = pulseFromAmplitude(aAmplitude, c);
+
         if (r >= PI)
         {
             // Finished moving down.
@@ -134,18 +164,14 @@ void generatePulsLevels()
         }
     }
 }
+// let's here.
+// we got that amplitude thing.
+// it can be set from anywhere.
 
-void SetOutputs()
+int pulseFromAmplitude(float ampl, float c)
 {
-    xDirBit = 1 - isMovingUpwards; // X dir bit
-    yDirBit = isMovingUpwards;     // Y dir bit
-    zDirBit = isMovingUpwards;     // Z dir bit
-    aDirBit = 1 - isMovingUpwards; // A dir bit
-
-    xStepBit = pulseLevel; // X step bit
-    yStepBit = pulseLevel; // Y step bit
-    zStepBit = pulseLevel; // Z step bit
-    aStepBit = pulseLevel; // A step bit
+    int s = (int)(ampl * c);
+    return s % 2;
 }
 
 void loop()
@@ -172,17 +198,19 @@ void loop()
             //Serial.println(x);
             //Serial.println(y);
 
+            // Correcting things.
+            // newCorrection = ...;
+            xAmplitude = baseAmplitude - xOldCorrection + xNewCorrection;
+
+            xOldCorrection = xNewCorrection;
+            yOldCorrection = yNewCorrection;
+            zOldCorrection = zNewCorrection;
+            aOldCorrection = aNewCorrection;
+
             moveDownRequest = true;
             // 5. set moveUpRequest after a certain delay (current goal)
             //delay(100);
             moveUpRequest = true;
         }
     }
-    //String command = Serial.readStringUntil(';');
-    //int x = Serial.parseInt();
-    //int y = Serial.parseInt();
-    // 1. parse
-    // 2. pid
-    // 3. correction
-    // 4. set moveDownRequest instantly (current goal)
 }
