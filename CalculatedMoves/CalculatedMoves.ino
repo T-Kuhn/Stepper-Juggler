@@ -15,7 +15,7 @@ bool moveDownFlag = false;
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const float freq = 0.004f; // value lowered for debug. real value: 0.004f
+const float freq = 0.005f; // value lowered for debug. real value: 0.004f
 const float baseAmplitude = 200.0;
 
 float xAmplitude = 200.0;

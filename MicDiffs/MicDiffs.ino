@@ -65,7 +65,7 @@ void loop()
         Serial.println("&");
 
         ff_reset = false;
-        delay(10);
+        delay(100);
 
         // wait until all mics are low again.
         while (micFlag1 || micFlag2 || micFlag3 || micFlag4)
