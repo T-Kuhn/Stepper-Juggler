@@ -59,7 +59,8 @@ void setup()
     TCCR1B = 0;
     TCNT1 = 0;
 
-    OCR1A = 3;               // compare match register 16MHz/256/20kHz
+    OCR1A = 16; // compare match register 16MHz/256/4kHz
+    //OCR1A = 3;// compare match register 16MHz/256/20kHz
     TCCR1B |= (1 << WGM12);  // CTC mode
     TCCR1B |= (1 << CS12);   // 256 prescaler
     TIMSK1 |= (1 << OCIE1A); // enable timer compare interrupt
@@ -73,6 +74,8 @@ void setup()
 // - - - - - - - - - - - - - - - - - - -
 ISR(TIMER1_COMPA_vect)
 {
+    interrupts();
+
     dealWithRequests();
     moveAllUpOrDown();
 
@@ -173,6 +176,11 @@ int pulseFromAmplitude(float ampl, float c)
 
 void loop()
 {
+    // DEBUG
+    moveDownRequest = true;
+    moveUpRequest = true;
+    // DEBUG
+
     if (Serial.available() > 0)
     {
         // Get next command from Serial (add 1 for final 0)
@@ -192,8 +200,8 @@ void loop()
             int x = atoi(command);
             ++separator;
             int y = atoi(separator);
-            //Serial.println(x);
-            //Serial.println(y);
+            Serial.println(x);
+            Serial.println(y);
 
             // Correcting things.
             xAmplitude = baseAmplitude - xOldCorrection + xNewCorrection;
@@ -207,7 +215,6 @@ void loop()
             aOldCorrection = aNewCorrection;
 
             moveDownRequest = true;
-
             //delay(100);
             moveUpRequest = true;
         }
