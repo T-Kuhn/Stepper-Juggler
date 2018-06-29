@@ -176,10 +176,6 @@ int pulseFromAmplitude(float ampl, float c)
 
 void loop()
 {
-    // DEBUG
-    moveDownRequest = true;
-    moveUpRequest = true;
-    // DEBUG
 
     if (Serial.available() > 0)
     {
@@ -200,8 +196,8 @@ void loop()
             int x = atoi(command);
             ++separator;
             int y = atoi(separator);
-            Serial.println(x);
-            Serial.println(y);
+            //Serial.println(x);
+            //Serial.println(y);
 
             // Correcting things.
             xAmplitude = baseAmplitude - xOldCorrection + xNewCorrection;
