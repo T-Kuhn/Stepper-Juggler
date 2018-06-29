@@ -18,10 +18,10 @@ bool plateIsBottomPos = false;
 const float freq = 0.005f; // value lowered for debug. real value: 0.004f
 const float baseAmplitude = 200.0;
 
-float xAmplitude = 200.0;
-float yAmplitude = 200.0;
-float zAmplitude = 200.0;
-float aAmplitude = 200.0;
+float xAmplitude = baseAmplitude;
+float yAmplitude = baseAmplitude;
+float zAmplitude = baseAmplitude;
+float aAmplitude = baseAmplitude;
 
 float xOldCorrection = 0.0;
 float yOldCorrection = 0.0;
@@ -211,7 +211,7 @@ void loop()
             aOldCorrection = aNewCorrection;
 
             moveDownRequest = true;
-            //delay(100);
+            //delay(150);
             moveUpRequest = true;
         }
     }
