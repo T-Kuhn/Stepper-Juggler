@@ -4,6 +4,9 @@
 #define INPUT_SIZE 16
 
 int counter = 0;
+//DEBUG
+int debugCounter = 0;
+//DEBUG
 bool isMovingUpwards = true;
 bool isStartingUp = true;
 
@@ -15,8 +18,8 @@ bool moveDownFlag = false;
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const float freq = 0.005f; // value lowered for debug. real value: 0.004f
-const float baseAmplitude = 200.0;
+const float freq = 0.0055f; // value lowered for debug. real value: 0.004f
+const float baseAmplitude = 180.0;
 
 float xAmplitude = baseAmplitude;
 float yAmplitude = baseAmplitude;
@@ -66,6 +69,7 @@ void setup()
     TIMSK1 |= (1 << OCIE1A); // enable timer compare interrupt
 
     interrupts(); // enable all interrupts
+    delay(1000);
 }
 
 // - - - - - - - - - - - - - - - - - - -
@@ -176,8 +180,27 @@ int pulseFromAmplitude(float ampl, float c)
 
 void loop()
 {
+    //DEBUG
+    if (debugCounter == 0)
+    {
+        delay(5000);
+        debugCounter++;
+    }
+    else if (debugCounter > 1000)
+    {
+        // test finished. do nothing and wait.
+    }
+    else
+    {
+        debugCounter++;
+        moveDownRequest = true;
+        delay(200);
+        moveUpRequest = true;
+        delay(250);
+    }
+    //DEBUG
 
-    if (Serial.available() > 0)
+    if (Serial.available() > 0 && false) // DEBUG: && false
     {
         // Get next command from Serial (add 1 for final 0)
         char input[INPUT_SIZE + 1];
@@ -211,7 +234,7 @@ void loop()
             aOldCorrection = aNewCorrection;
 
             moveDownRequest = true;
-            //delay(150);
+            delay(200);
             moveUpRequest = true;
         }
     }
