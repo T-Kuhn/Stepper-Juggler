@@ -1,4 +1,8 @@
 #include <DirectIO.h>
+#include "Encoder.h"
+
+// 9 and 10 are inputs
+Encoder Encoder1(9, 10);
 
 // Max input size expected for one command
 #define INPUT_SIZE 16
@@ -6,6 +10,8 @@
 int counter = 0;
 bool isMovingUpwards = true;
 bool isStartingUp = true;
+bool isCalibratingHorizontally = true;
+bool isCalibratingVertically = true;
 
 bool moveDownRequest = false;
 bool moveUpRequest = false;
@@ -33,6 +39,8 @@ float yNewCorrection = 0.0;
 float zNewCorrection = 0.0;
 float aNewCorrection = 0.0;
 
+Input<A0> button;
+
 Output<8> enablePin;
 
 Output<2> xStepBit;
@@ -50,6 +58,7 @@ void setup()
     Serial.begin(115200);
     Serial.setTimeout(20);
     enablePin = LOW;
+    delay(2000);
 
     // - - - - - - - - - - - - - - - - - - -
     // - - - - -  SET UP TIMER 1 - - - - - -
@@ -66,7 +75,6 @@ void setup()
     TIMSK1 |= (1 << OCIE1A); // enable timer compare interrupt
 
     interrupts(); // enable all interrupts
-    delay(1000);
 }
 
 // - - - - - - - - - - - - - - - - - - -
@@ -79,11 +87,6 @@ ISR(TIMER1_COMPA_vect)
 
     dealWithRequests();
     moveAllUpOrDown();
-
-    xDirBit = 1 - isMovingUpwards; // X dir bit
-    yDirBit = isMovingUpwards;     // Y dir bit
-    zDirBit = isMovingUpwards;     // Z dir bit
-    aDirBit = 1 - isMovingUpwards; // A dir bit
 }
 
 void dealWithRequests()
@@ -119,6 +122,8 @@ void moveAllUpOrDown()
         zStepBit = pulseLevel;
         aStepBit = pulseLevel;
 
+        setDirection();
+
         if (counter > 10000)
         {
             // Finished starting up.
@@ -127,6 +132,38 @@ void moveAllUpOrDown()
             plateIsBottomPos = true;
             moveUpRequest = true;
         }
+    }
+    else if (isCalibratingHorizontally)
+    {
+        Encoder1.update();
+
+        int rotDir = Encoder1.currentRot;
+        xDirBit = 1 - rotDir; // X dir bit
+        yDirBit = rotDir;     // Y dir bit
+        zDirBit = 1 - rotDir; // Z dir bit
+        aDirBit = rotDir;     // A dir bit
+
+        int pulseLevel = digitalRead(9);
+        xStepBit = pulseLevel;
+        yStepBit = pulseLevel;
+        zStepBit = pulseLevel;
+        aStepBit = pulseLevel;
+    }
+    else if (isCalibratingVertically)
+    {
+        Encoder1.update();
+
+        int rotDir = Encoder1.currentRot;
+        xDirBit = rotDir;     // X dir bit
+        yDirBit = rotDir;     // Y dir bit
+        zDirBit = 1 - rotDir; // Z dir bit
+        aDirBit = 1 - rotDir; // A dir bit
+
+        int pulseLevel = digitalRead(9);
+        xStepBit = pulseLevel;
+        yStepBit = pulseLevel;
+        zStepBit = pulseLevel;
+        aStepBit = pulseLevel;
     }
     else if (moveUpFlag)
     {
@@ -139,6 +176,8 @@ void moveAllUpOrDown()
         yStepBit = pulseLevel;
         zStepBit = pulseLevel;
         aStepBit = pulseLevel;
+
+        setDirection();
 
         if (r >= PI)
         {
@@ -159,6 +198,8 @@ void moveAllUpOrDown()
         zStepBit = pulseFromAmplitude(zAmplitude, c);
         aStepBit = pulseFromAmplitude(aAmplitude, c);
 
+        setDirection();
+
         if (r >= PI)
         {
             // Finished moving down.
@@ -169,6 +210,14 @@ void moveAllUpOrDown()
     }
 }
 
+void setDirection()
+{
+    xDirBit = 1 - isMovingUpwards; // X dir bit
+    yDirBit = isMovingUpwards;     // Y dir bit
+    zDirBit = isMovingUpwards;     // Z dir bit
+    aDirBit = 1 - isMovingUpwards; // A dir bit
+}
+
 int pulseFromAmplitude(float ampl, float c)
 {
     int s = (int)(ampl * c);
@@ -177,7 +226,18 @@ int pulseFromAmplitude(float ampl, float c)
 
 void loop()
 {
-    if (Serial.available() > 0)
+    if (!button && isCalibratingHorizontally)
+    {
+        isCalibratingHorizontally = false;
+        delay(500);
+    }
+    if (!button && isCalibratingVertically)
+    {
+        isCalibratingVertically = false;
+        delay(500);
+    }
+
+    if (Serial.available() > 0 && !isCalibratingHorizontally && !isCalibratingVertically)
     {
         // Get next command from Serial (add 1 for final 0)
         char input[INPUT_SIZE + 1];
@@ -185,7 +245,7 @@ void loop()
         // Add the final 0 to end the C string
         input[size] = 0;
 
-        // Read each command pair
+        // Read command pair
         char *command = strtok(input, "&");
         // Split the command in two values
         char *separator = strchr(command, ':');
@@ -193,11 +253,40 @@ void loop()
         {
             // Actually split the string in 2: replace ':' with 0
             *separator = 0;
-            int x = atoi(command);
+            int vertical = atoi(command);
             ++separator;
-            int y = atoi(separator);
-            //Serial.println(x);
-            //Serial.println(y);
+            int horizontal = atoi(separator);
+
+            // DEBUG
+            Serial.print("v: ");
+            Serial.println(vertical);
+            Serial.print("h: ");
+            Serial.println(horizontal);
+            // DEBUG
+
+            // DEBUG
+            float horizontalCor = constrain((float)horizontal / 4.0, -20.0, 20.0);
+            float verticalCor = constrain((float)vertical / 4.0, -20.0, 20.0);
+            Serial.print("v cor: ");
+            Serial.println(verticalCor);
+            Serial.print("h cor: ");
+            Serial.println(horizontalCor);
+            // DEBUG
+
+            // DEBUG
+            // horizontal
+            xNewCorrection = -horizontalCor;
+            yNewCorrection = -horizontalCor;
+
+            zNewCorrection = horizontalCor;
+            aNewCorrection = horizontalCor;
+            // vertical
+            aNewCorrection -= verticalCor;
+            yNewCorrection -= verticalCor;
+
+            xNewCorrection += verticalCor;
+            zNewCorrection += verticalCor;
+            // DEBUG
 
             // Correcting things.
             xAmplitude = baseAmplitude - xOldCorrection + xNewCorrection;
