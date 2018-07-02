@@ -21,13 +21,17 @@ bool moveDownFlag = false;
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const float freq = 0.0055f; // value lowered for debug. real value: 0.004f
-const float baseAmplitude = 180.0;
+const float FREQ = 0.0055f;
+const float BASE_AMPLITUDE = 180.0;
+const int HISTORY_COUNT = 4;
 
-float xAmplitude = baseAmplitude;
-float yAmplitude = baseAmplitude;
-float zAmplitude = baseAmplitude;
-float aAmplitude = baseAmplitude;
+float xAmplitude = BASE_AMPLITUDE;
+float yAmplitude = BASE_AMPLITUDE;
+float zAmplitude = BASE_AMPLITUDE;
+float aAmplitude = BASE_AMPLITUDE;
+
+float hArr[HISTORY_COUNT];
+float vArr[HISTORY_COUNT];
 
 float xOldCorrection = 0.0;
 float yOldCorrection = 0.0;
@@ -55,6 +59,12 @@ Output<11> aDirBit;
 
 void setup()
 {
+    for (int i = 0; i < HISTORY_COUNT; i++)
+    {
+        vArr[i] = 0.0;
+        hArr[i] = 0.0;
+    }
+
     Serial.begin(115200);
     Serial.setTimeout(20);
     enablePin = LOW;
@@ -168,10 +178,10 @@ void moveAllUpOrDown()
     else if (moveUpFlag)
     {
         counter++;
-        float r = counter * freq;
+        float r = counter * FREQ;
         float c = cos(r) + 1.0;
 
-        int pulseLevel = pulseFromAmplitude(baseAmplitude, c);
+        int pulseLevel = pulseFromAmplitude(BASE_AMPLITUDE, c);
         xStepBit = pulseLevel;
         yStepBit = pulseLevel;
         zStepBit = pulseLevel;
@@ -190,7 +200,7 @@ void moveAllUpOrDown()
     else if (moveDownFlag)
     {
         counter++;
-        float r = counter * freq;
+        float r = counter * FREQ;
         float c = cos(r) + 1.0;
 
         xStepBit = pulseFromAmplitude(xAmplitude, c);
@@ -264,16 +274,27 @@ void loop()
             Serial.println(horizontal);
             // DEBUG
 
+            // - - - PD - - -
+            // - - - P
+            float h_P = constrain((float)horizontal / 4.0, -20.0, 20.0);
+            float v_P = constrain((float)vertical / 4.0, -20.0, 20.0);
+
+            // - - - PD - - -
+            // - - - D
+
+            // - - - PID - - -
+            // - - - ADD THEM TOGETHER
+            float horizontalCor = h_P;
+            float verticalCor = v_P;
+
             // DEBUG
-            float horizontalCor = constrain((float)horizontal / 4.0, -20.0, 20.0);
-            float verticalCor = constrain((float)vertical / 4.0, -20.0, 20.0);
             Serial.print("v cor: ");
             Serial.println(verticalCor);
             Serial.print("h cor: ");
             Serial.println(horizontalCor);
             // DEBUG
 
-            // DEBUG
+            // - - - ADD UP CORRECTION - - -
             // horizontal
             xNewCorrection = -horizontalCor;
             yNewCorrection = -horizontalCor;
@@ -286,13 +307,12 @@ void loop()
 
             xNewCorrection += verticalCor;
             zNewCorrection += verticalCor;
-            // DEBUG
 
-            // Correcting things.
-            xAmplitude = baseAmplitude - xOldCorrection + xNewCorrection;
-            yAmplitude = baseAmplitude - yOldCorrection + yNewCorrection;
-            zAmplitude = baseAmplitude - zOldCorrection + zNewCorrection;
-            aAmplitude = baseAmplitude - aOldCorrection + aNewCorrection;
+            // - - - APPLY CORRECTION - - -
+            xAmplitude = BASE_AMPLITUDE - xOldCorrection + xNewCorrection;
+            yAmplitude = BASE_AMPLITUDE - yOldCorrection + yNewCorrection;
+            zAmplitude = BASE_AMPLITUDE - zOldCorrection + zNewCorrection;
+            aAmplitude = BASE_AMPLITUDE - aOldCorrection + aNewCorrection;
 
             xOldCorrection = xNewCorrection;
             yOldCorrection = yNewCorrection;
