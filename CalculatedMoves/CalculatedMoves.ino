@@ -22,16 +22,15 @@ bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
 const float FREQ = 0.0055f;
-const float BASE_AMPLITUDE = 180.0;
-const int HISTORY_COUNT = 4;
+const float BASE_AMPLITUDE = 170.0;
 
 float xAmplitude = BASE_AMPLITUDE;
 float yAmplitude = BASE_AMPLITUDE;
 float zAmplitude = BASE_AMPLITUDE;
 float aAmplitude = BASE_AMPLITUDE;
 
-float hArr[HISTORY_COUNT];
-float vArr[HISTORY_COUNT];
+float oldVertical = 0.0;
+float oldHorizontal = 0.0;
 
 float xOldCorrection = 0.0;
 float yOldCorrection = 0.0;
@@ -59,12 +58,6 @@ Output<11> aDirBit;
 
 void setup()
 {
-    for (int i = 0; i < HISTORY_COUNT; i++)
-    {
-        vArr[i] = 0.0;
-        hArr[i] = 0.0;
-    }
-
     Serial.begin(115200);
     Serial.setTimeout(20);
     enablePin = LOW;
@@ -134,7 +127,7 @@ void moveAllUpOrDown()
 
         setDirection();
 
-        if (counter > 10000)
+        if (counter > 12000)
         {
             // Finished starting up.
             counter = 0;
@@ -153,7 +146,7 @@ void moveAllUpOrDown()
         zDirBit = 1 - rotDir; // Z dir bit
         aDirBit = rotDir;     // A dir bit
 
-        int pulseLevel = digitalRead(9);
+        int pulseLevel = Encoder1.count % 4;
         xStepBit = pulseLevel;
         yStepBit = pulseLevel;
         zStepBit = pulseLevel;
@@ -169,7 +162,7 @@ void moveAllUpOrDown()
         zDirBit = 1 - rotDir; // Z dir bit
         aDirBit = 1 - rotDir; // A dir bit
 
-        int pulseLevel = digitalRead(9);
+        int pulseLevel = Encoder1.count % 4;
         xStepBit = pulseLevel;
         yStepBit = pulseLevel;
         zStepBit = pulseLevel;
@@ -263,29 +256,36 @@ void loop()
         {
             // Actually split the string in 2: replace ':' with 0
             *separator = 0;
-            int vertical = atoi(command);
+            int ver = atoi(command);
             ++separator;
-            int horizontal = atoi(separator);
+            int hor = atoi(separator);
+
+            float horizontal = (float)hor;
+            float vertical = (float)ver;
 
             // DEBUG
             Serial.print("v: ");
-            Serial.println(vertical);
+            Serial.println(ver);
             Serial.print("h: ");
-            Serial.println(horizontal);
+            Serial.println(hor);
             // DEBUG
 
             // - - - PD - - -
             // - - - P
-            float h_P = constrain((float)horizontal / 4.0, -20.0, 20.0);
-            float v_P = constrain((float)vertical / 4.0, -20.0, 20.0);
+            float h_P = constrain(horizontal / 6.0, -20.0, 20.0);
+            float v_P = constrain(vertical / 6.0, -20.0, 20.0);
 
             // - - - PD - - -
             // - - - D
+            float h_D = constrain((horizontal - oldHorizontal) / 2, -20.0, 20.0);
+            float v_D = constrain((vertical - oldVertical) / 2, -20.0, 20.0);
+            oldHorizontal = horizontal;
+            oldVertical = vertical;
 
             // - - - PID - - -
             // - - - ADD THEM TOGETHER
-            float horizontalCor = h_P;
-            float verticalCor = v_P;
+            float horizontalCor = h_D + h_P;
+            float verticalCor = v_D + v_P;
 
             // DEBUG
             Serial.print("v cor: ");
