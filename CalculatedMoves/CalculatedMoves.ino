@@ -25,7 +25,7 @@ bool plateIsBottomPos = false;
 const uint16_t FREQ = 360;
 // We are deviding the amplitude.
 // a bigger base amplitude will lead to a smaller distance travelled.
-const float BASE_AMPLITUDE = 100.0;
+const float BASE_AMPLITUDE = 100;
 
 float xAmplitude = BASE_AMPLITUDE;
 float yAmplitude = BASE_AMPLITUDE;
@@ -224,9 +224,9 @@ void setDirection()
     aDirBit = 1 - isMovingUpwards; // A dir bit
 }
 
-int pulseFromAmplitude(int16_t ampl, int16_t c)
+int pulseFromAmplitude(float ampl, int16_t c)
 {
-    int16_t s = c / ampl;
+    int s = (int)(c * (0.0001 * ampl);
     return s % 2;
 }
 
@@ -299,17 +299,17 @@ void loop()
 
             // - - - ADD UP CORRECTION - - -
             // horizontal
-            xNewCorrection = horizontalCor;
-            yNewCorrection = horizontalCor;
+            xNewCorrection = -horizontalCor;
+            yNewCorrection = -horizontalCor;
 
-            zNewCorrection = -horizontalCor;
-            aNewCorrection = -horizontalCor;
+            zNewCorrection = horizontalCor;
+            aNewCorrection = horizontalCor;
             // vertical
-            aNewCorrection += verticalCor;
-            yNewCorrection += verticalCor;
+            aNewCorrection -= verticalCor;
+            yNewCorrection -= verticalCor;
 
-            xNewCorrection -= verticalCor;
-            zNewCorrection -= verticalCor;
+            xNewCorrection += verticalCor;
+            zNewCorrection += verticalCor;
 
             // - - - APPLY CORRECTION - - -
             xAmplitude = BASE_AMPLITUDE - xOldCorrection + xNewCorrection;
