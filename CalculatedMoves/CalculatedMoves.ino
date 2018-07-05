@@ -299,17 +299,17 @@ void loop()
 
             // - - - ADD UP CORRECTION - - -
             // horizontal
-            xNewCorrection = -horizontalCor;
-            yNewCorrection = -horizontalCor;
+            xNewCorrection = horizontalCor;
+            yNewCorrection = horizontalCor;
 
-            zNewCorrection = horizontalCor;
-            aNewCorrection = horizontalCor;
+            zNewCorrection = -horizontalCor;
+            aNewCorrection = -horizontalCor;
             // vertical
-            aNewCorrection -= verticalCor;
-            yNewCorrection -= verticalCor;
+            aNewCorrection += verticalCor;
+            yNewCorrection += verticalCor;
 
-            xNewCorrection += verticalCor;
-            zNewCorrection += verticalCor;
+            xNewCorrection -= verticalCor;
+            zNewCorrection -= verticalCor;
 
             // - - - APPLY CORRECTION - - -
             xAmplitude = BASE_AMPLITUDE - xOldCorrection + xNewCorrection;
