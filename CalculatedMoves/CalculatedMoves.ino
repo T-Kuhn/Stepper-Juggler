@@ -1,5 +1,6 @@
 #include <DirectIO.h>
 #include "Encoder.h"
+#include "cos_fix.h"
 
 // 9 and 10 are inputs
 Encoder Encoder1(9, 10);
@@ -21,8 +22,10 @@ bool moveDownFlag = false;
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const float FREQ = 0.0055f;
-const float BASE_AMPLITUDE = 170.0;
+const uint16_t FREQ = 360;
+// We are deviding the amplitude.
+// a bigger base amplitude will lead to a smaller distance travelled.
+const float BASE_AMPLITUDE = 100.0;
 
 float xAmplitude = BASE_AMPLITUDE;
 float yAmplitude = BASE_AMPLITUDE;
@@ -171,8 +174,8 @@ void moveAllUpOrDown()
     else if (moveUpFlag)
     {
         counter++;
-        float r = counter * FREQ;
-        float c = cos(r) + 1.0;
+        uint16_t r = counter * FREQ;
+        int16_t c = cos_fix(r) + 16384;
 
         int pulseLevel = pulseFromAmplitude(BASE_AMPLITUDE, c);
         xStepBit = pulseLevel;
@@ -182,7 +185,7 @@ void moveAllUpOrDown()
 
         setDirection();
 
-        if (r >= PI)
+        if (r >= 32768)
         {
             // Finished moving up.
             counter = 0;
@@ -193,8 +196,8 @@ void moveAllUpOrDown()
     else if (moveDownFlag)
     {
         counter++;
-        float r = counter * FREQ;
-        float c = cos(r) + 1.0;
+        uint16_t r = counter * FREQ;
+        int16_t c = cos_fix(r) + 16384;
 
         xStepBit = pulseFromAmplitude(xAmplitude, c);
         yStepBit = pulseFromAmplitude(yAmplitude, c);
@@ -203,7 +206,7 @@ void moveAllUpOrDown()
 
         setDirection();
 
-        if (r >= PI)
+        if (r >= 32768)
         {
             // Finished moving down.
             counter = 0;
@@ -221,9 +224,9 @@ void setDirection()
     aDirBit = 1 - isMovingUpwards; // A dir bit
 }
 
-int pulseFromAmplitude(float ampl, float c)
+int pulseFromAmplitude(int16_t ampl, int16_t c)
 {
-    int s = (int)(ampl * c);
+    int16_t s = c / ampl;
     return s % 2;
 }
 
