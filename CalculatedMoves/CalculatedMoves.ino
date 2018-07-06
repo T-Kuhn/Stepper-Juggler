@@ -22,10 +22,10 @@ bool moveDownFlag = false;
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const uint16_t FREQ = 360;
+const uint16_t FREQ = 36;
 // We are deviding the amplitude.
 // a bigger base amplitude will lead to a smaller distance travelled.
-const float BASE_AMPLITUDE = 100;
+const float BASE_AMPLITUDE = 200;
 
 float xAmplitude = BASE_AMPLITUDE;
 float yAmplitude = BASE_AMPLITUDE;
@@ -74,7 +74,7 @@ void setup()
     TCCR1B = 0;
     TCNT1 = 0;
 
-    OCR1A = 16; // compare match register 16MHz/256/4kHz
+    OCR1A = 12; // compare match register 16MHz/256/4kHz
     //OCR1A = 3;// compare match register 16MHz/256/20kHz
     TCCR1B |= (1 << WGM12);  // CTC mode
     TCCR1B |= (1 << CS12);   // 256 prescaler
@@ -226,7 +226,7 @@ void setDirection()
 
 int pulseFromAmplitude(float ampl, int16_t c)
 {
-    int s = (int)(c * (0.0001 * ampl);
+    int s = (int)(c * (0.0001 * ampl));
     return s % 2;
 }
 
