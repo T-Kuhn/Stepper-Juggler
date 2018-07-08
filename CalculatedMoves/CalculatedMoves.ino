@@ -25,7 +25,7 @@ bool plateIsBottomPos = false;
 const uint16_t FREQ = 36;
 // We are deviding the amplitude.
 // a bigger base amplitude will lead to a smaller distance travelled.
-const float BASE_AMPLITUDE = 200;
+const float BASE_AMPLITUDE = 0.005;
 
 float xAmplitude = BASE_AMPLITUDE;
 float yAmplitude = BASE_AMPLITUDE;
@@ -63,7 +63,7 @@ void setup()
 {
     Serial.begin(115200);
     Serial.setTimeout(20);
-    enablePin = LOW;
+    enablePin = HIGH;
     delay(2000);
 
     // - - - - - - - - - - - - - - - - - - -
@@ -74,7 +74,7 @@ void setup()
     TCCR1B = 0;
     TCNT1 = 0;
 
-    OCR1A = 12; // compare match register 16MHz/256/4kHz
+    OCR1A = 16; // compare match register 16MHz/256/4kHz
     //OCR1A = 3;// compare match register 16MHz/256/20kHz
     TCCR1B |= (1 << WGM12);  // CTC mode
     TCCR1B |= (1 << CS12);   // 256 prescaler
@@ -130,7 +130,7 @@ void moveAllUpOrDown()
 
         setDirection();
 
-        if (counter > 12000)
+        if (counter > 6000)
         {
             // Finished starting up.
             counter = 0;
@@ -218,15 +218,15 @@ void moveAllUpOrDown()
 
 void setDirection()
 {
-    xDirBit = 1 - isMovingUpwards; // X dir bit
-    yDirBit = isMovingUpwards;     // Y dir bit
-    zDirBit = isMovingUpwards;     // Z dir bit
-    aDirBit = 1 - isMovingUpwards; // A dir bit
+    xDirBit = isMovingUpwards;     // X dir bit
+    yDirBit = 1 - isMovingUpwards; // Y dir bit
+    zDirBit = 1 - isMovingUpwards; // Z dir bit
+    aDirBit = isMovingUpwards;     // A dir bit
 }
 
 int pulseFromAmplitude(float ampl, int16_t c)
 {
-    int s = (int)(c * (0.0001 * ampl));
+    int s = (int)(c * (ampl));
     return s % 2;
 }
 
@@ -242,6 +242,11 @@ void loop()
         isCalibratingVertically = false;
         delay(500);
     }
+
+    // DEBUG
+    moveDownRequest = true;
+    moveUpRequest = true;
+    // DEBUG
 
     if (Serial.available() > 0 && !isCalibratingHorizontally && !isCalibratingVertically)
     {
@@ -310,6 +315,12 @@ void loop()
 
             xNewCorrection += verticalCor;
             zNewCorrection += verticalCor;
+
+            // - - - BRING VALUES INTO RIGHT RANGE - - -
+            xNewCorrection = xNewCorrection * 0.00001;
+            yNewCorrection = yNewCorrection * 0.00001;
+            zNewCorrection = zNewCorrection * 0.00001;
+            aNewCorrection = aNewCorrection * 0.00001;
 
             // - - - APPLY CORRECTION - - -
             xAmplitude = BASE_AMPLITUDE - xOldCorrection + xNewCorrection;
