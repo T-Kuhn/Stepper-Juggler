@@ -60,7 +60,7 @@ void setup()
 {
     Serial.begin(115200);
     Serial.setTimeout(20);
-    enablePin = LOW;
+    enablePin = HIGH;
     delay(2000);
 
     // - - - - - - - - - - - - - - - - - - -
@@ -215,10 +215,10 @@ void moveAllUpOrDown()
 
 void setDirection()
 {
-    xDirBit = 1 - isMovingUpwards; // X dir bit
-    yDirBit = isMovingUpwards;     // Y dir bit
-    zDirBit = isMovingUpwards;     // Z dir bit
-    aDirBit = 1 - isMovingUpwards; // A dir bit
+    xDirBit = isMovingUpwards;     // X dir bit
+    yDirBit = 1 - isMovingUpwards; // Y dir bit
+    zDirBit = 1 - isMovingUpwards; // Z dir bit
+    aDirBit = isMovingUpwards;     // A dir bit
 }
 
 int pulseFromAmplitude(float ampl, float c)
@@ -284,8 +284,8 @@ void loop()
 
             // - - - PID - - -
             // - - - ADD THEM TOGETHER
-            float horizontalCor = h_D + h_P;
-            float verticalCor = v_D + v_P;
+            float horizontalCor = -h_P - h_D;
+            float verticalCor = -v_P - v_D;
 
             // DEBUG
             Serial.print("v cor: ");
