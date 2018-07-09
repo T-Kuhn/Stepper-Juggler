@@ -292,8 +292,8 @@ void loop()
 
             // - - - PID - - -
             // - - - ADD THEM TOGETHER
-            float horizontalCor = h_D + h_P;
-            float verticalCor = v_D + v_P;
+            float horizontalCor = -h_P - h_D;
+            float verticalCor = -v_P - v_D;
 
             // DEBUG
             Serial.print("v cor: ");
