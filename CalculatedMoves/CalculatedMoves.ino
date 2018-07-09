@@ -22,12 +22,14 @@ bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
 const float FREQ = 0.0055f;
-const float BASE_AMPLITUDE = 170.0;
+const float BASE_AMPLITUDE = 150.0;
 
-float xAmplitude = BASE_AMPLITUDE;
-float yAmplitude = BASE_AMPLITUDE;
-float zAmplitude = BASE_AMPLITUDE;
-float aAmplitude = BASE_AMPLITUDE;
+float xAmplitude[2]; //  = BASE_AMPLITUDE;
+float yAmplitude[2]; //  = BASE_AMPLITUDE;
+float zAmplitude[2]; //  = BASE_AMPLITUDE;
+float aAmplitude[2]; //  = BASE_AMPLITUDE;
+
+int ampIndex = 0;
 
 float oldVertical = 0.0;
 float oldHorizontal = 0.0;
@@ -58,6 +60,14 @@ Output<11> aDirBit;
 
 void setup()
 {
+    for (int i = 0; i < 2; i++)
+    {
+        xAmplitude[i] = BASE_AMPLITUDE;
+        yAmplitude[i] = BASE_AMPLITUDE;
+        zAmplitude[i] = BASE_AMPLITUDE;
+        aAmplitude[i] = BASE_AMPLITUDE;
+    }
+
     Serial.begin(115200);
     Serial.setTimeout(20);
     enablePin = HIGH;
@@ -88,7 +98,7 @@ void setup()
 // - - - - - - - - - - - - - - - - - - -
 ISR(TIMER1_COMPA_vect)
 {
-    interrupts();
+    //interrupts();
 
     dealWithRequests();
     moveAllUpOrDown();
@@ -135,7 +145,6 @@ void moveAllUpOrDown()
             counter = 0;
             isStartingUp = false;
             plateIsBottomPos = true;
-            moveUpRequest = true;
         }
     }
     else if (isCalibratingHorizontally)
@@ -188,6 +197,9 @@ void moveAllUpOrDown()
             counter = 0;
             moveUpFlag = false;
             plateIsTopPos = true;
+
+            // - - - SWITCH AMPLITUDE REGISTER - - -
+            ampIndex = 1 - ampIndex;
         }
     }
     else if (moveDownFlag)
@@ -196,10 +208,10 @@ void moveAllUpOrDown()
         float r = counter * FREQ;
         float c = cos(r) + 1.0;
 
-        xStepBit = pulseFromAmplitude(xAmplitude, c);
-        yStepBit = pulseFromAmplitude(yAmplitude, c);
-        zStepBit = pulseFromAmplitude(zAmplitude, c);
-        aStepBit = pulseFromAmplitude(aAmplitude, c);
+        xStepBit = pulseFromAmplitude(xAmplitude[ampIndex], c);
+        yStepBit = pulseFromAmplitude(yAmplitude[ampIndex], c);
+        zStepBit = pulseFromAmplitude(zAmplitude[ampIndex], c);
+        aStepBit = pulseFromAmplitude(aAmplitude[ampIndex], c);
 
         if (r >= PI)
         {
@@ -235,10 +247,19 @@ void loop()
     if (!button && isCalibratingVertically)
     {
         isCalibratingVertically = false;
+        moveUpRequest = true;
+        isMovingUpwards = true;
+        setDirection();
         delay(500);
     }
 
-    if (Serial.available() > 0 && !isCalibratingHorizontally && !isCalibratingVertically)
+    // debug
+    moveDownRequest = true;
+    //delay(200);
+    moveUpRequest = true;
+    // debug
+
+    if (Serial.available() > 0 && !isCalibratingHorizontally && !isCalibratingVertically && false)
     {
         // Get next command from Serial (add 1 for final 0)
         char input[INPUT_SIZE + 1];
@@ -282,8 +303,8 @@ void loop()
 
             // - - - PID - - -
             // - - - ADD THEM TOGETHER
-            float horizontalCor = -h_P - h_D;
-            float verticalCor = -v_P - v_D;
+            float horizontalCor = h_P; // + h_D;
+            float verticalCor = v_P;   // + v_D;
 
             // DEBUG
             Serial.print("v cor: ");
@@ -307,10 +328,10 @@ void loop()
             zNewCorrection += verticalCor;
 
             // - - - APPLY CORRECTION - - -
-            xAmplitude = BASE_AMPLITUDE - xOldCorrection + xNewCorrection;
-            yAmplitude = BASE_AMPLITUDE - yOldCorrection + yNewCorrection;
-            zAmplitude = BASE_AMPLITUDE - zOldCorrection + zNewCorrection;
-            aAmplitude = BASE_AMPLITUDE - aOldCorrection + aNewCorrection;
+            xAmplitude[1 - ampIndex] = BASE_AMPLITUDE - xOldCorrection + xNewCorrection;
+            yAmplitude[1 - ampIndex] = BASE_AMPLITUDE - yOldCorrection + yNewCorrection;
+            zAmplitude[1 - ampIndex] = BASE_AMPLITUDE - zOldCorrection + zNewCorrection;
+            aAmplitude[1 - ampIndex] = BASE_AMPLITUDE - aOldCorrection + aNewCorrection;
 
             xOldCorrection = xNewCorrection;
             yOldCorrection = yNewCorrection;
@@ -318,7 +339,7 @@ void loop()
             aOldCorrection = aNewCorrection;
 
             moveDownRequest = true;
-            delay(200);
+            //delay(200);
             moveUpRequest = true;
         }
     }
