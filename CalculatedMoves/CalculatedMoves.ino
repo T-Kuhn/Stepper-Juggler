@@ -61,7 +61,9 @@ void setup()
     Serial.begin(115200);
     Serial.setTimeout(20);
     enablePin = HIGH;
+
     delay(2000);
+    setDirection();
 
     // - - - - - - - - - - - - - - - - - - -
     // - - - - -  SET UP TIMER 1 - - - - - -
@@ -98,6 +100,7 @@ void dealWithRequests()
     {
         moveUpFlag = true;
         isMovingUpwards = true;
+        setDirection();
 
         moveUpRequest = false;
         plateIsBottomPos = false;
@@ -106,6 +109,7 @@ void dealWithRequests()
     {
         moveDownFlag = true;
         isMovingUpwards = false;
+        setDirection();
 
         moveDownRequest = false;
         plateIsTopPos = false;
@@ -124,8 +128,6 @@ void moveAllUpOrDown()
         yStepBit = pulseLevel;
         zStepBit = pulseLevel;
         aStepBit = pulseLevel;
-
-        setDirection();
 
         if (counter > 12000)
         {
@@ -180,8 +182,6 @@ void moveAllUpOrDown()
         zStepBit = pulseLevel;
         aStepBit = pulseLevel;
 
-        setDirection();
-
         if (r >= PI)
         {
             // Finished moving up.
@@ -200,8 +200,6 @@ void moveAllUpOrDown()
         yStepBit = pulseFromAmplitude(yAmplitude, c);
         zStepBit = pulseFromAmplitude(zAmplitude, c);
         aStepBit = pulseFromAmplitude(aAmplitude, c);
-
-        setDirection();
 
         if (r >= PI)
         {
