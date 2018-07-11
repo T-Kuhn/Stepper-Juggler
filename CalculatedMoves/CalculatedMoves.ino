@@ -21,7 +21,7 @@ bool moveDownFlag = false;
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const float FREQ = 0.006f; // 0.006f
+const float FREQ = 0.003f; // 0.006f
 const float BASE_AMPLITUDE = 150.0;
 
 float xAmplitude = BASE_AMPLITUDE;
@@ -62,11 +62,18 @@ Output<11> aDirBit;
 
 Output<13> ISRIsActive;
 
+float cosArr[315];
+
 void setup()
 {
     Serial.begin(115200);
     Serial.setTimeout(20);
     enablePin = HIGH;
+
+    for (int i = 0; i < 315; i++)
+    {
+        cosArr[i] = cos((float)i / 300.0 * PI);
+    }
 
     delay(2000);
     setDirection();
