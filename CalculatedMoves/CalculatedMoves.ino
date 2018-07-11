@@ -23,8 +23,6 @@ bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
 const uint16_t FREQ = 36;
-// We are deviding the amplitude.
-// a bigger base amplitude will lead to a smaller distance travelled.
 const float BASE_AMPLITUDE = 0.005;
 
 float xAmplitude = BASE_AMPLITUDE;
@@ -77,7 +75,7 @@ void setup()
     TCNT1 = 0;
 
     OCR1A = 16; // compare match register 16MHz/256/4kHz
-    //OCR1A = 3;// compare match register 16MHz/256/20kHz
+
     TCCR1B |= (1 << WGM12);  // CTC mode
     TCCR1B |= (1 << CS12);   // 256 prescaler
     TIMSK1 |= (1 << OCIE1A); // enable timer compare interrupt
@@ -91,8 +89,8 @@ void setup()
 // - - - - - - - - - - - - - - - - - - -
 ISR(TIMER1_COMPA_vect)
 {
-    ISRIsActive = true;
     interrupts();
+    ISRIsActive = true;
 
     dealWithRequests();
     moveAllUpOrDown();
@@ -105,6 +103,7 @@ void dealWithRequests()
     {
         moveUpFlag = true;
         isMovingUpwards = true;
+        setDirection();
 
         moveUpRequest = false;
         plateIsBottomPos = false;
@@ -113,6 +112,7 @@ void dealWithRequests()
     {
         moveDownFlag = true;
         isMovingUpwards = false;
+        setDirection();
 
         moveDownRequest = false;
         plateIsTopPos = false;
@@ -132,15 +132,12 @@ void moveAllUpOrDown()
         zStepBit = pulseLevel;
         aStepBit = pulseLevel;
 
-        setDirection();
-
         if (counter > 6000)
         {
             // Finished starting up.
             counter = 0;
             isStartingUp = false;
             plateIsBottomPos = true;
-            moveUpRequest = true;
         }
     }
     else if (isCalibratingHorizontally)
@@ -187,8 +184,6 @@ void moveAllUpOrDown()
         zStepBit = pulseLevel;
         aStepBit = pulseLevel;
 
-        setDirection();
-
         if (r >= 32768)
         {
             // Finished moving up.
@@ -207,8 +202,6 @@ void moveAllUpOrDown()
         yStepBit = pulseFromAmplitude(yAmplitude, c);
         zStepBit = pulseFromAmplitude(zAmplitude, c);
         aStepBit = pulseFromAmplitude(aAmplitude, c);
-
-        setDirection();
 
         if (r >= 32768)
         {
@@ -230,7 +223,7 @@ void setDirection()
 
 int pulseFromAmplitude(float ampl, int16_t c)
 {
-    int s = (int)(c * (ampl));
+    int s = (int)(c * ampl);
     return s % 2;
 }
 
@@ -244,6 +237,9 @@ void loop()
     if (!button && isCalibratingVertically)
     {
         isCalibratingVertically = false;
+        moveUpRequest = true;
+        isMovingUpwards = true;
+        setDirection();
         delay(500);
     }
 
@@ -252,7 +248,7 @@ void loop()
     moveUpRequest = true;
     // DEBUG
 
-    if (Serial.available() > 0 && !isCalibratingHorizontally && !isCalibratingVertically)
+    if (Serial.available() > 0 && !isCalibratingHorizontally && !isCalibratingVertically && isMovingUpwards)
     {
         // Get next command from Serial (add 1 for final 0)
         char input[INPUT_SIZE + 1];
@@ -296,8 +292,8 @@ void loop()
 
             // - - - PID - - -
             // - - - ADD THEM TOGETHER
-            float horizontalCor = h_D + h_P;
-            float verticalCor = v_D + v_P;
+            float horizontalCor = h_P; // h_D +
+            float verticalCor = v_P;   // v_D +
 
             // DEBUG
             Serial.print("v cor: ");
