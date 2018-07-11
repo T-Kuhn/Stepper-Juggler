@@ -29,8 +29,6 @@ float yAmplitude = BASE_AMPLITUDE;
 float zAmplitude = BASE_AMPLITUDE;
 float aAmplitude = BASE_AMPLITUDE;
 
-int ampIndex = 0;
-
 float oldVertical = 0.0;
 float oldHorizontal = 0.0;
 
