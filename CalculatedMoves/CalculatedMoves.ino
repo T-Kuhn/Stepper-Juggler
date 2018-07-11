@@ -59,6 +59,8 @@ Output<6> yDirBit;
 Output<7> zDirBit;
 Output<11> aDirBit;
 
+Output<13> ISRIsActive;
+
 void setup()
 {
     Serial.begin(115200);
@@ -89,10 +91,12 @@ void setup()
 // - - - - - - - - - - - - - - - - - - -
 ISR(TIMER1_COMPA_vect)
 {
+    ISRIsActive = true;
     interrupts();
 
     dealWithRequests();
     moveAllUpOrDown();
+    ISRIsActive = false;
 }
 
 void dealWithRequests()
