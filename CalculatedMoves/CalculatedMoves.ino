@@ -21,13 +21,13 @@ bool moveDownFlag = false;
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const float FREQ = 0.0055f;
+const float FREQ = 0.006f; // 0.006f
 const float BASE_AMPLITUDE = 150.0;
 
-float xAmplitude[2]; //  = BASE_AMPLITUDE;
-float yAmplitude[2]; //  = BASE_AMPLITUDE;
-float zAmplitude[2]; //  = BASE_AMPLITUDE;
-float aAmplitude[2]; //  = BASE_AMPLITUDE;
+float xAmplitude = BASE_AMPLITUDE;
+float yAmplitude = BASE_AMPLITUDE;
+float zAmplitude = BASE_AMPLITUDE;
+float aAmplitude = BASE_AMPLITUDE;
 
 int ampIndex = 0;
 
@@ -44,6 +44,8 @@ float yNewCorrection = 0.0;
 float zNewCorrection = 0.0;
 float aNewCorrection = 0.0;
 
+int posX = 0;
+
 Input<A0> button;
 
 Output<8> enablePin;
@@ -58,16 +60,10 @@ Output<6> yDirBit;
 Output<7> zDirBit;
 Output<11> aDirBit;
 
+Output<13> ISRIsActive;
+
 void setup()
 {
-    for (int i = 0; i < 2; i++)
-    {
-        xAmplitude[i] = BASE_AMPLITUDE;
-        yAmplitude[i] = BASE_AMPLITUDE;
-        zAmplitude[i] = BASE_AMPLITUDE;
-        aAmplitude[i] = BASE_AMPLITUDE;
-    }
-
     Serial.begin(115200);
     Serial.setTimeout(20);
     enablePin = HIGH;
@@ -83,7 +79,7 @@ void setup()
     TCCR1B = 0;
     TCNT1 = 0;
 
-    OCR1A = 16; // compare match register 16MHz/256/4kHz
+    OCR1A = 20; // compare match register 16MHz/256/4kHz
     //OCR1A = 3;// compare match register 16MHz/256/20kHz
     TCCR1B |= (1 << WGM12);  // CTC mode
     TCCR1B |= (1 << CS12);   // 256 prescaler
@@ -98,10 +94,12 @@ void setup()
 // - - - - - - - - - - - - - - - - - - -
 ISR(TIMER1_COMPA_vect)
 {
-    //interrupts();
+    ISRIsActive = true;
+    interrupts();
 
     dealWithRequests();
     moveAllUpOrDown();
+    ISRIsActive = false;
 }
 
 void dealWithRequests()
@@ -186,7 +184,8 @@ void moveAllUpOrDown()
         float c = cos(r) + 1.0;
 
         int pulseLevel = pulseFromAmplitude(BASE_AMPLITUDE, c);
-        xStepBit = pulseLevel;
+        xStepBit = pulseFromAmplitudeX(BASE_AMPLITUDE, c);
+        //xStepBit = pulseLevel;
         yStepBit = pulseLevel;
         zStepBit = pulseLevel;
         aStepBit = pulseLevel;
@@ -197,9 +196,6 @@ void moveAllUpOrDown()
             counter = 0;
             moveUpFlag = false;
             plateIsTopPos = true;
-
-            // - - - SWITCH AMPLITUDE REGISTER - - -
-            ampIndex = 1 - ampIndex;
         }
     }
     else if (moveDownFlag)
@@ -208,10 +204,10 @@ void moveAllUpOrDown()
         float r = counter * FREQ;
         float c = cos(r) + 1.0;
 
-        xStepBit = pulseFromAmplitude(xAmplitude[ampIndex], c);
-        yStepBit = pulseFromAmplitude(yAmplitude[ampIndex], c);
-        zStepBit = pulseFromAmplitude(zAmplitude[ampIndex], c);
-        aStepBit = pulseFromAmplitude(aAmplitude[ampIndex], c);
+        xStepBit = pulseFromAmplitudeX(xAmplitude, c);
+        yStepBit = pulseFromAmplitude(yAmplitude, c);
+        zStepBit = pulseFromAmplitude(zAmplitude, c);
+        aStepBit = pulseFromAmplitude(aAmplitude, c);
 
         if (r >= PI)
         {
@@ -237,6 +233,18 @@ int pulseFromAmplitude(float ampl, float c)
     return s % 2;
 }
 
+int pulseFromAmplitudeX(float ampl, float c)
+{
+    int s = (int)(ampl * c);
+    int res = s % 2;
+    if (res > xStepBit)
+    {
+        // count the positive flank.
+        posX += isMovingUpwards ? 1 : -1;
+    }
+    return res;
+}
+
 void loop()
 {
     if (!button && isCalibratingHorizontally)
@@ -253,13 +261,12 @@ void loop()
         delay(500);
     }
 
-    // debug
-    moveDownRequest = true;
-    //delay(200);
-    moveUpRequest = true;
-    // debug
+    // DEBUG
+    //moveDownRequest = true;
+    //moveUpRequest = true;
+    // DEBUG
 
-    if (Serial.available() > 0 && !isCalibratingHorizontally && !isCalibratingVertically && false)
+    if (Serial.available() > 0 && !isCalibratingHorizontally && !isCalibratingVertically && isMovingUpwards)
     {
         // Get next command from Serial (add 1 for final 0)
         char input[INPUT_SIZE + 1];
@@ -287,6 +294,9 @@ void loop()
             Serial.println(ver);
             Serial.print("h: ");
             Serial.println(hor);
+            // DEBUG
+            Serial.print("posX: ");
+            Serial.println(posX);
             // DEBUG
 
             // - - - PD - - -
@@ -328,10 +338,10 @@ void loop()
             zNewCorrection += verticalCor;
 
             // - - - APPLY CORRECTION - - -
-            xAmplitude[1 - ampIndex] = BASE_AMPLITUDE - xOldCorrection + xNewCorrection;
-            yAmplitude[1 - ampIndex] = BASE_AMPLITUDE - yOldCorrection + yNewCorrection;
-            zAmplitude[1 - ampIndex] = BASE_AMPLITUDE - zOldCorrection + zNewCorrection;
-            aAmplitude[1 - ampIndex] = BASE_AMPLITUDE - aOldCorrection + aNewCorrection;
+            xAmplitude = BASE_AMPLITUDE - xOldCorrection + xNewCorrection;
+            yAmplitude = BASE_AMPLITUDE - yOldCorrection + yNewCorrection;
+            zAmplitude = BASE_AMPLITUDE - zOldCorrection + zNewCorrection;
+            aAmplitude = BASE_AMPLITUDE - aOldCorrection + aNewCorrection;
 
             xOldCorrection = xNewCorrection;
             yOldCorrection = yNewCorrection;

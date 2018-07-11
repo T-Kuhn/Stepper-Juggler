@@ -10,28 +10,17 @@
  */
 #include <Arduino.h>
 #include "BasicStepperDriver.h"
-#include <DirectIO.h>
 
 // Motor steps per revolution. Most steppers are 200 steps or 1.8 degrees/step
 #define MOTOR_STEPS 200
-#define RPM 120
+#define RPM 12
 
 // Since microstepping is set externally, make sure this matches the selected mode
 // If it doesn't, the motor will move at a different RPM than chosen
 // 1=full step, 2=half step etc.
 #define MICROSTEPS 16
 
-Output<8> enablePin;
-
-//Output<2> xStepBit;
-Output<3> yStepBit;
-Output<4> zStepBit;
-Output<12> aStepBit;
-
-//Output<5> xDirBit;
-Output<6> yDirBit;
-Output<7> zDirBit;
-Output<11> aDirBit;
+pinMode(8, OUTPUT);
 
 // All the wires needed for full functionality
 #define DIR 5
@@ -49,6 +38,8 @@ void setup()
 {
     Serial.begin(115200);
     Serial.setTimeout(20);
+    digitalWrite(8, HIGH);
+    delay(1000);
 
     //xStepBit = LOW;
     yStepBit = LOW;
@@ -60,7 +51,6 @@ void setup()
     zDirBit = LOW;
     aDirBit = LOW;
 
-    enablePin = HIGH;
     stepper.begin(RPM, MICROSTEPS);
 }
 
@@ -84,5 +74,4 @@ void loop()
     // stepper.disable();
 
     delay(5000);
-    Serial.println("did one rot.");
 }
