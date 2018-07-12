@@ -24,8 +24,8 @@ bool plateIsBottomPos = false;
 
 //const uint16_t FREQ = 0.0055;     //36
 // 0.007 didn't work.
-const float FREQ = 0.006;         // 0.0055
-const float BASE_AMPLITUDE = 150; // 150
+const float FREQ = 0.006;         // 0.006
+const float BASE_AMPLITUDE = 100; // 150
 
 float xAmplitude = BASE_AMPLITUDE;
 float yAmplitude = BASE_AMPLITUDE;
@@ -45,6 +45,9 @@ float yNewCorrection = 0.0;
 float zNewCorrection = 0.0;
 float aNewCorrection = 0.0;
 
+float h_I = 0.0;
+float v_I = 0.0;
+
 int posX = 0;
 int posY = 0;
 int posZ = 0;
@@ -61,9 +64,6 @@ int posSnapShotTopZinit = 0;
 int posSnapShotTopAinit = 0;
 
 int idleCounter = 0;
-
-bool calibrationStepLevel;
-bool calibDebugFlag;
 
 bool isInitialMoveToTop = true;
 bool idleCycleRequest = false;
@@ -176,7 +176,7 @@ void moveAllUpOrDown()
         zStepBit = pulseLevel;
         aStepBit = pulseLevel;
 
-        if (counter > 6000)
+        if (counter > 4000)
         {
             // Finished starting up.
             counter = 0;
@@ -194,22 +194,11 @@ void moveAllUpOrDown()
         zDirBit = 1 - rotDir; // Z dir bit
         aDirBit = rotDir;     // A dir bit
 
-        int pulseLevel = Encoder1.count % 10;
-
-        if (pulseLevel == 0 && calibDebugFlag)
-        {
-            calibrationStepLevel = !calibrationStepLevel;
-            calibDebugFlag = false;
-        }
-        if (pulseLevel != 0)
-        {
-            calibDebugFlag = true;
-        }
-
-        xStepBit = calibrationStepLevel;
-        yStepBit = calibrationStepLevel;
-        zStepBit = calibrationStepLevel;
-        aStepBit = calibrationStepLevel;
+        int pulseLevel = Encoder1.count % 4;
+        xStepBit = pulseLevel;
+        yStepBit = pulseLevel;
+        zStepBit = pulseLevel;
+        aStepBit = pulseLevel;
     }
     else if (isCalibratingVertically)
     {
@@ -415,22 +404,27 @@ void loop()
             Serial.println(hor);
             // DEBUG
 
-            // - - - PD - - -
+            // - - - PID - - -
             // - - - P
-            float h_P = constrain(horizontal / 6.0, -20.0, 20.0);
-            float v_P = constrain(vertical / 6.0, -20.0, 20.0);
+            float h_P = constrain(horizontal / 10.0, -15.0, 15.0);
+            float v_P = constrain(vertical / 10.0, -15.0, 15.0);
 
-            // - - - PD - - -
+            // - - - PID - - -
             // - - - D
-            float h_D = constrain((horizontal - oldHorizontal) / 2, -20.0, 20.0);
-            float v_D = constrain((vertical - oldVertical) / 2, -20.0, 20.0);
+            float h_D = constrain((horizontal - oldHorizontal) / 8, -15.0, 15.0);
+            float v_D = constrain((vertical - oldVertical) / 8, -15.0, 15.0);
             oldHorizontal = horizontal;
             oldVertical = vertical;
 
             // - - - PID - - -
+            // - - - I
+            h_I += h_P / 10.0;
+            v_I += v_P / 10.0;
+
+            // - - - PID - - -
             // - - - ADD THEM TOGETHER
-            float horizontalCor = h_P; // h_D +
-            float verticalCor = v_P;   // v_D +
+            float horizontalCor = constrain(h_P + h_D, -20, 20) + h_I;
+            float verticalCor = constrain(v_P + v_D, -20, 20) + v_I;
 
             // DEBUG
             Serial.print("v cor: ");
@@ -478,10 +472,10 @@ void loop()
             aAmplitude = BASE_AMPLITUDE - aOldCorrection + aNewCorrection;
 
             // DEBUG
-            xAmplitude += (posSnapShotTopX - posSnapShotTopXinit) / 2;
-            yAmplitude += (posSnapShotTopY - posSnapShotTopYinit) / 2;
-            zAmplitude += (posSnapShotTopZ - posSnapShotTopZinit) / 2;
-            aAmplitude += (posSnapShotTopA - posSnapShotTopAinit) / 2;
+            xAmplitude += (posSnapShotTopX - posSnapShotTopXinit) / 10;
+            yAmplitude += (posSnapShotTopY - posSnapShotTopYinit) / 10;
+            zAmplitude += (posSnapShotTopZ - posSnapShotTopZinit) / 10;
+            aAmplitude += (posSnapShotTopA - posSnapShotTopAinit) / 10;
             // DEBUG
 
             xOldCorrection = xNewCorrection;
