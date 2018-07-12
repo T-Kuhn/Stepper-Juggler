@@ -17,6 +17,27 @@ void setup()
 
 void loop()
 {
+    // DEBUG
+    while (1)
+    {
+        int ranVertical = random(-250, 250);
+        int ranHorizontal = random(-250, 250);
+
+        if (random(1, 10) >= 4)
+        {
+            ranVertical = 0;
+            ranHorizontal = 0;
+        }
+
+        Serial.print(constrain(ranVertical, -200, 200));
+        Serial.print(":");
+        Serial.print(constrain(ranHorizontal, -200, 200));
+        Serial.println("&");
+
+        delay(1000);
+    }
+    // DEBUG
+
     boolean micFlag1 = false;
     boolean micFlag2 = false;
     boolean micFlag3 = false;

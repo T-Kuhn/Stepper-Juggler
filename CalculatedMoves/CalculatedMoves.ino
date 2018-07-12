@@ -22,8 +22,8 @@ bool moveDownFlag = false;
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const uint16_t FREQ = 36;
-const float BASE_AMPLITUDE = 0.005;
+const uint16_t FREQ = 36;           //36
+const float BASE_AMPLITUDE = 0.002; // 0.009
 
 float xAmplitude = BASE_AMPLITUDE;
 float yAmplitude = BASE_AMPLITUDE;
@@ -42,6 +42,29 @@ float xNewCorrection = 0.0;
 float yNewCorrection = 0.0;
 float zNewCorrection = 0.0;
 float aNewCorrection = 0.0;
+
+int posX = 0;
+int posY = 0;
+int posZ = 0;
+int posA = 0;
+
+int posSnapShotTopX = 0;
+int posSnapShotTopY = 0;
+int posSnapShotTopZ = 0;
+int posSnapShotTopA = 0;
+
+int posSnapShotTopXinit = 0;
+int posSnapShotTopYinit = 0;
+int posSnapShotTopZinit = 0;
+int posSnapShotTopAinit = 0;
+
+int idleCounter = 0;
+
+bool calibrationStepLevel;
+bool calibDebugFlag;
+
+bool isInitialMoveToTop = true;
+bool idleCycleRequest = false;
 
 Input<A0> button;
 
@@ -64,7 +87,10 @@ void setup()
     Serial.begin(115200);
     Serial.setTimeout(20);
     enablePin = HIGH;
-    delay(2000);
+    delay(1000);
+    isMovingUpwards = true;
+    setDirection();
+    delay(1000);
 
     // - - - - - - - - - - - - - - - - - - -
     // - - - - -  SET UP TIMER 1 - - - - - -
@@ -92,8 +118,20 @@ ISR(TIMER1_COMPA_vect)
     interrupts();
     ISRIsActive = true;
 
-    dealWithRequests();
-    moveAllUpOrDown();
+    if (idleCycleRequest)
+    {
+        idleCounter++;
+        if (idleCounter > 50)
+        {
+            idleCycleRequest = false;
+            idleCounter = 0;
+        }
+    }
+    else
+    {
+        dealWithRequests();
+        moveAllUpOrDown();
+    }
     ISRIsActive = false;
 }
 
@@ -121,12 +159,16 @@ void dealWithRequests()
 
 void moveAllUpOrDown()
 {
+    if (idleCycleRequest)
+    {
+        return;
+    }
+
     if (isStartingUp)
     {
         counter++;
         // Move all steppers up a little on start-up
         int pulseLevel = counter % 100;
-
         xStepBit = pulseLevel;
         yStepBit = pulseLevel;
         zStepBit = pulseLevel;
@@ -150,11 +192,22 @@ void moveAllUpOrDown()
         zDirBit = 1 - rotDir; // Z dir bit
         aDirBit = rotDir;     // A dir bit
 
-        int pulseLevel = Encoder1.count % 4;
-        xStepBit = pulseLevel;
-        yStepBit = pulseLevel;
-        zStepBit = pulseLevel;
-        aStepBit = pulseLevel;
+        int pulseLevel = Encoder1.count % 10;
+
+        if (pulseLevel == 0 && calibDebugFlag)
+        {
+            calibrationStepLevel = !calibrationStepLevel;
+            calibDebugFlag = false;
+        }
+        if (pulseLevel != 0)
+        {
+            calibDebugFlag = true;
+        }
+
+        xStepBit = calibrationStepLevel;
+        yStepBit = calibrationStepLevel;
+        zStepBit = calibrationStepLevel;
+        aStepBit = calibrationStepLevel;
     }
     else if (isCalibratingVertically)
     {
@@ -178,18 +231,24 @@ void moveAllUpOrDown()
         uint16_t r = counter * FREQ;
         int16_t c = cos_fix(r) + 16384;
 
-        int pulseLevel = pulseFromAmplitude(BASE_AMPLITUDE, c);
-        xStepBit = pulseLevel;
-        yStepBit = pulseLevel;
-        zStepBit = pulseLevel;
-        aStepBit = pulseLevel;
+        xStepBit = pulseFromAmplitudeX(BASE_AMPLITUDE, c);
+        yStepBit = pulseFromAmplitudeY(BASE_AMPLITUDE, c);
+        zStepBit = pulseFromAmplitudeZ(BASE_AMPLITUDE, c);
+        aStepBit = pulseFromAmplitudeA(BASE_AMPLITUDE, c);
 
         if (r >= 32768)
         {
             // Finished moving up.
             counter = 0;
             moveUpFlag = false;
+            if (isInitialMoveToTop)
+            {
+                takeInitialPosSnapShot();
+                isInitialMoveToTop = false;
+            }
+            takePosSnapShot();
             plateIsTopPos = true;
+            idleCycleRequest = true;
         }
     }
     else if (moveDownFlag)
@@ -198,10 +257,10 @@ void moveAllUpOrDown()
         uint16_t r = counter * FREQ;
         int16_t c = cos_fix(r) + 16384;
 
-        xStepBit = pulseFromAmplitude(xAmplitude, c);
-        yStepBit = pulseFromAmplitude(yAmplitude, c);
-        zStepBit = pulseFromAmplitude(zAmplitude, c);
-        aStepBit = pulseFromAmplitude(aAmplitude, c);
+        xStepBit = pulseFromAmplitudeX(xAmplitude, c);
+        yStepBit = pulseFromAmplitudeY(yAmplitude, c);
+        zStepBit = pulseFromAmplitudeZ(zAmplitude, c);
+        aStepBit = pulseFromAmplitudeA(aAmplitude, c);
 
         if (r >= 32768)
         {
@@ -209,8 +268,25 @@ void moveAllUpOrDown()
             counter = 0;
             moveDownFlag = false;
             plateIsBottomPos = true;
+            idleCycleRequest = true;
         }
     }
+}
+
+void takePosSnapShot()
+{
+    posSnapShotTopX = posX;
+    posSnapShotTopY = posY;
+    posSnapShotTopZ = posZ;
+    posSnapShotTopA = posA;
+}
+
+void takeInitialPosSnapShot()
+{
+    posSnapShotTopXinit = posX;
+    posSnapShotTopYinit = posY;
+    posSnapShotTopZinit = posZ;
+    posSnapShotTopAinit = posA;
 }
 
 void setDirection()
@@ -219,12 +295,63 @@ void setDirection()
     yDirBit = 1 - isMovingUpwards; // Y dir bit
     zDirBit = 1 - isMovingUpwards; // Z dir bit
     aDirBit = isMovingUpwards;     // A dir bit
+
+    idleCycleRequest = true;
 }
 
+// unused
 int pulseFromAmplitude(float ampl, int16_t c)
 {
     int s = (int)(c * ampl);
     return s % 2;
+}
+
+int pulseFromAmplitudeX(float ampl, int16_t c)
+{
+    int s = (int)(c * ampl);
+    int res = s % 2;
+    if (res > xStepBit)
+    {
+        // count the positive flank.
+        posX += isMovingUpwards ? 1 : -1;
+    }
+    return res;
+}
+
+int pulseFromAmplitudeY(float ampl, int16_t c)
+{
+    int s = (int)(c * ampl);
+    int res = s % 2;
+    if (res > yStepBit)
+    {
+        // count the positive flank.
+        posY += isMovingUpwards ? 1 : -1;
+    }
+    return res;
+}
+
+int pulseFromAmplitudeZ(float ampl, int16_t c)
+{
+    int s = (int)(c * ampl);
+    int res = s % 2;
+    if (res > zStepBit)
+    {
+        // count the positive flank.
+        posZ += isMovingUpwards ? 1 : -1;
+    }
+    return res;
+}
+
+int pulseFromAmplitudeA(float ampl, int16_t c)
+{
+    int s = (int)(c * ampl);
+    int res = s % 2;
+    if (res > aStepBit)
+    {
+        // count the positive flank.
+        posA += isMovingUpwards ? 1 : -1;
+    }
+    return res;
 }
 
 void loop()
@@ -244,8 +371,8 @@ void loop()
     }
 
     // DEBUG
-    moveDownRequest = true;
-    moveUpRequest = true;
+    //moveDownRequest = true;
+    //moveUpRequest = true;
     // DEBUG
 
     if (Serial.available() > 0 && !isCalibratingHorizontally && !isCalibratingVertically && isMovingUpwards)
@@ -302,6 +429,17 @@ void loop()
             Serial.println(horizontalCor);
             // DEBUG
 
+            // DEBUG
+            Serial.print("posX: ");
+            Serial.println(posSnapShotTopX);
+            Serial.print("posY: ");
+            Serial.println(posSnapShotTopY);
+            Serial.print("posZ: ");
+            Serial.println(posSnapShotTopZ);
+            Serial.print("posA: ");
+            Serial.println(posSnapShotTopA);
+            // DEBUG
+
             // - - - ADD UP CORRECTION - - -
             // horizontal
             xNewCorrection = -horizontalCor;
@@ -328,6 +466,15 @@ void loop()
             zAmplitude = BASE_AMPLITUDE - zOldCorrection + zNewCorrection;
             aAmplitude = BASE_AMPLITUDE - aOldCorrection + aNewCorrection;
 
+            // DEBUG
+            /*
+            xAmplitude += (posSnapShotTopX - posSnapShotTopXinit) * 0.00001;
+            yAmplitude += (posSnapShotTopY - posSnapShotTopYinit) * 0.00001;
+            zAmplitude += (posSnapShotTopZ - posSnapShotTopZinit) * 0.00001;
+            aAmplitude += (posSnapShotTopA - posSnapShotTopAinit) * 0.00001;
+            */
+            // DEBUG
+
             xOldCorrection = xNewCorrection;
             yOldCorrection = yNewCorrection;
             zOldCorrection = zNewCorrection;
@@ -339,3 +486,7 @@ void loop()
         }
     }
 }
+// MEMO
+// - implement position monitoring for all axis.
+// - clamp result of PD.
+// - make random number test.
