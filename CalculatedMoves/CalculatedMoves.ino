@@ -22,8 +22,10 @@ bool moveDownFlag = false;
 bool plateIsTopPos = false;
 bool plateIsBottomPos = false;
 
-const uint16_t FREQ = 36;           //36
-const float BASE_AMPLITUDE = 0.002; // 0.009
+//const uint16_t FREQ = 0.0055;     //36
+// 0.007 didn't work.
+const float FREQ = 0.006;         // 0.0055
+const float BASE_AMPLITUDE = 150; // 150
 
 float xAmplitude = BASE_AMPLITUDE;
 float yAmplitude = BASE_AMPLITUDE;
@@ -100,7 +102,7 @@ void setup()
     TCCR1B = 0;
     TCNT1 = 0;
 
-    OCR1A = 16; // compare match register 16MHz/256/4kHz
+    OCR1A = 20; // compare match register 16MHz/256/4kHz
 
     TCCR1B |= (1 << WGM12);  // CTC mode
     TCCR1B |= (1 << CS12);   // 256 prescaler
@@ -121,7 +123,7 @@ ISR(TIMER1_COMPA_vect)
     if (idleCycleRequest)
     {
         idleCounter++;
-        if (idleCounter > 50)
+        if (idleCounter > 5)
         {
             idleCycleRequest = false;
             idleCounter = 0;
@@ -228,15 +230,17 @@ void moveAllUpOrDown()
     else if (moveUpFlag)
     {
         counter++;
-        uint16_t r = counter * FREQ;
-        int16_t c = cos_fix(r) + 16384;
+        float r = counter * FREQ;
+        float c = cos(r) + 1.0;
+        //uint16_t r = counter * FREQ;
+        //int16_t c = cos_fix(r) + 16384;
 
         xStepBit = pulseFromAmplitudeX(BASE_AMPLITUDE, c);
         yStepBit = pulseFromAmplitudeY(BASE_AMPLITUDE, c);
         zStepBit = pulseFromAmplitudeZ(BASE_AMPLITUDE, c);
         aStepBit = pulseFromAmplitudeA(BASE_AMPLITUDE, c);
 
-        if (r >= 32768)
+        if (r >= PI)
         {
             // Finished moving up.
             counter = 0;
@@ -254,15 +258,17 @@ void moveAllUpOrDown()
     else if (moveDownFlag)
     {
         counter++;
-        uint16_t r = counter * FREQ;
-        int16_t c = cos_fix(r) + 16384;
+        float r = counter * FREQ;
+        float c = cos(r) + 1.0;
+        //uint16_t r = counter * FREQ;
+        //int16_t c = cos_fix(r) + 16384;
 
         xStepBit = pulseFromAmplitudeX(xAmplitude, c);
         yStepBit = pulseFromAmplitudeY(yAmplitude, c);
         zStepBit = pulseFromAmplitudeZ(zAmplitude, c);
         aStepBit = pulseFromAmplitudeA(aAmplitude, c);
 
-        if (r >= 32768)
+        if (r >= PI)
         {
             // Finished moving down.
             counter = 0;
@@ -306,7 +312,8 @@ int pulseFromAmplitude(float ampl, int16_t c)
     return s % 2;
 }
 
-int pulseFromAmplitudeX(float ampl, int16_t c)
+//int pulseFromAmplitudeX(float ampl, int16_t c)
+int pulseFromAmplitudeX(float ampl, float c)
 {
     int s = (int)(c * ampl);
     int res = s % 2;
@@ -318,7 +325,8 @@ int pulseFromAmplitudeX(float ampl, int16_t c)
     return res;
 }
 
-int pulseFromAmplitudeY(float ampl, int16_t c)
+//int pulseFromAmplitudeY(float ampl, int16_t c)
+int pulseFromAmplitudeY(float ampl, float c)
 {
     int s = (int)(c * ampl);
     int res = s % 2;
@@ -330,7 +338,8 @@ int pulseFromAmplitudeY(float ampl, int16_t c)
     return res;
 }
 
-int pulseFromAmplitudeZ(float ampl, int16_t c)
+//int pulseFromAmplitudeZ(float ampl, int16_t c)
+int pulseFromAmplitudeZ(float ampl, float c)
 {
     int s = (int)(c * ampl);
     int res = s % 2;
@@ -342,7 +351,8 @@ int pulseFromAmplitudeZ(float ampl, int16_t c)
     return res;
 }
 
-int pulseFromAmplitudeA(float ampl, int16_t c)
+//int pulseFromAmplitudeZ(float ampl, int16_t c)
+int pulseFromAmplitudeA(float ampl, float c)
 {
     int s = (int)(c * ampl);
     int res = s % 2;
@@ -455,11 +465,12 @@ void loop()
             zNewCorrection += verticalCor;
 
             // - - - BRING VALUES INTO RIGHT RANGE - - -
+            /*
             xNewCorrection = xNewCorrection * 0.00001;
             yNewCorrection = yNewCorrection * 0.00001;
             zNewCorrection = zNewCorrection * 0.00001;
             aNewCorrection = aNewCorrection * 0.00001;
-
+            */
             // - - - APPLY CORRECTION - - -
             xAmplitude = BASE_AMPLITUDE - xOldCorrection + xNewCorrection;
             yAmplitude = BASE_AMPLITUDE - yOldCorrection + yNewCorrection;
@@ -467,12 +478,10 @@ void loop()
             aAmplitude = BASE_AMPLITUDE - aOldCorrection + aNewCorrection;
 
             // DEBUG
-            /*
-            xAmplitude += (posSnapShotTopX - posSnapShotTopXinit) * 0.00001;
-            yAmplitude += (posSnapShotTopY - posSnapShotTopYinit) * 0.00001;
-            zAmplitude += (posSnapShotTopZ - posSnapShotTopZinit) * 0.00001;
-            aAmplitude += (posSnapShotTopA - posSnapShotTopAinit) * 0.00001;
-            */
+            xAmplitude += (posSnapShotTopX - posSnapShotTopXinit) / 2;
+            yAmplitude += (posSnapShotTopY - posSnapShotTopYinit) / 2;
+            zAmplitude += (posSnapShotTopZ - posSnapShotTopZinit) / 2;
+            aAmplitude += (posSnapShotTopA - posSnapShotTopAinit) / 2;
             // DEBUG
 
             xOldCorrection = xNewCorrection;

@@ -26,6 +26,9 @@ void loop()
         if (random(1, 10) >= 4)
         {
             ranVertical = 0;
+        }
+        if (random(1, 10) >= 4)
+        {
             ranHorizontal = 0;
         }
 
@@ -34,7 +37,7 @@ void loop()
         Serial.print(constrain(ranHorizontal, -200, 200));
         Serial.println("&");
 
-        delay(1000);
+        delay(500);
     }
     // DEBUG
 
