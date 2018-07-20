@@ -1,2 +1,2 @@
-# Rotary-Enc-To-A4988
-Sending pulses from a rotary encoder via Arduino to a A4988 stepper driver chip.
+# Stepper Juggler
+Juggling a ping pong ball with 4 stepper motors and 4 mics.
