@@ -423,13 +423,8 @@ void loop()
 
             // - - - PID - - -
             // - - - ADD THEM TOGETHER
-            //float horizontalCor = constrain(h_P + h_D, -20, 20) + h_I;
-            //float verticalCor = constrain(v_P + v_D, -20, 20) + v_I;
-
-            // DEBUG
-            float horizontalCor = constrain(h_P, -20, 20);
-            float verticalCor = constrain(v_P, -20, 20);
-            // DEBUG
+            float horizontalCor = constrain(h_P + h_D, -20, 20) + h_I;
+            float verticalCor = constrain(v_P + v_D, -20, 20) + v_I;
 
             // DEBUG
             Serial.print("v cor: ");
@@ -463,6 +458,13 @@ void loop()
             xNewCorrection += verticalCor;
             zNewCorrection += verticalCor;
 
+            // - - - BRING VALUES INTO RIGHT RANGE - - -
+            /*
+            xNewCorrection = xNewCorrection * 0.00001;
+            yNewCorrection = yNewCorrection * 0.00001;
+            zNewCorrection = zNewCorrection * 0.00001;
+            aNewCorrection = aNewCorrection * 0.00001;
+            */
             // - - - APPLY CORRECTION - - -
             xAmplitude = BASE_AMPLITUDE - xOldCorrection + xNewCorrection;
             yAmplitude = BASE_AMPLITUDE - yOldCorrection + yNewCorrection;
@@ -470,13 +472,10 @@ void loop()
             aAmplitude = BASE_AMPLITUDE - aOldCorrection + aNewCorrection;
 
             // DEBUG
-            // - - - CORRECT FOR DEVIATIONS - - -
-            Serial.print("x dev corr: ");
-            Serial.println((posSnapShotTopX - (posSnapShotTopXinit - xOldCorrection)));
-            xAmplitude += (posSnapShotTopX - (posSnapShotTopXinit - xOldCorrection)); // / 10;
-            yAmplitude += (posSnapShotTopY - (posSnapShotTopYinit - yOldCorrection)); // / 10;
-            zAmplitude += (posSnapShotTopZ - (posSnapShotTopZinit - zOldCorrection)); // / 10;
-            aAmplitude += (posSnapShotTopA - (posSnapShotTopAinit - aOldCorrection)); // / 10;
+            xAmplitude += (posSnapShotTopX - posSnapShotTopXinit) / 10;
+            yAmplitude += (posSnapShotTopY - posSnapShotTopYinit) / 10;
+            zAmplitude += (posSnapShotTopZ - posSnapShotTopZinit) / 10;
+            aAmplitude += (posSnapShotTopA - posSnapShotTopAinit) / 10;
             // DEBUG
 
             xOldCorrection = xNewCorrection;
