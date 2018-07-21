@@ -18,7 +18,6 @@ void setup()
 void loop()
 {
     // DEBUG
-    /*
     while (1)
     {
         int ranVertical = random(-250, 250);
@@ -40,7 +39,6 @@ void loop()
 
         delay(500);
     }
-    */
     // DEBUG
 
     boolean micFlag1 = false;

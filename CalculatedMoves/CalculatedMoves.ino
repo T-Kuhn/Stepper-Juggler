@@ -406,14 +406,13 @@ void loop()
 
             // - - - PID - - -
             // - - - P
-            float h_P = constrain(horizontal / 15.0, -10.0, 10.0);
-            float v_P = constrain(vertical / 15.0, -10.0, 10.0);
+            float h_P = constrain(horizontal / 10.0, -15.0, 15.0);
+            float v_P = constrain(vertical / 10.0, -15.0, 15.0);
 
             // - - - PID - - -
             // - - - D
-            float h_D = constrain((horizontal - oldHorizontal) / 15, -10.0, 10.0);
-            float v_D = constrain((vertical - oldVertical) / 15, -10.0, 10.0);
-
+            float h_D = constrain((horizontal - oldHorizontal) / 8, -15.0, 15.0);
+            float v_D = constrain((vertical - oldVertical) / 8, -15.0, 15.0);
             oldHorizontal = horizontal;
             oldVertical = vertical;
 
@@ -424,8 +423,13 @@ void loop()
 
             // - - - PID - - -
             // - - - ADD THEM TOGETHER
-            float horizontalCor = constrain(h_P + h_D, -10, 10); // + h_I;
-            float verticalCor = constrain(v_P + v_D, -10, 10);   // + v_I;
+            //float horizontalCor = constrain(h_P + h_D, -20, 20) + h_I;
+            //float verticalCor = constrain(v_P + v_D, -20, 20) + v_I;
+
+            // DEBUG
+            float horizontalCor = constrain(h_P, -20, 20);
+            float verticalCor = constrain(v_P, -20, 20);
+            // DEBUG
 
             // DEBUG
             Serial.print("v cor: ");
@@ -467,10 +471,12 @@ void loop()
 
             // DEBUG
             // - - - CORRECT FOR DEVIATIONS - - -
-            xAmplitude += (posSnapShotTopX - (posSnapShotTopXinit - xOldCorrection));
-            yAmplitude += (posSnapShotTopY - (posSnapShotTopYinit - yOldCorrection));
-            zAmplitude += (posSnapShotTopZ - (posSnapShotTopZinit - zOldCorrection));
-            aAmplitude += (posSnapShotTopA - (posSnapShotTopAinit - aOldCorrection));
+            Serial.print("x dev corr: ");
+            Serial.println((posSnapShotTopX - (posSnapShotTopXinit - xOldCorrection)));
+            xAmplitude += (posSnapShotTopX - (posSnapShotTopXinit - xOldCorrection)); // / 10;
+            yAmplitude += (posSnapShotTopY - (posSnapShotTopYinit - yOldCorrection)); // / 10;
+            zAmplitude += (posSnapShotTopZ - (posSnapShotTopZinit - zOldCorrection)); // / 10;
+            aAmplitude += (posSnapShotTopA - (posSnapShotTopAinit - aOldCorrection)); // / 10;
             // DEBUG
 
             xOldCorrection = xNewCorrection;
@@ -484,3 +490,7 @@ void loop()
         }
     }
 }
+// MEMO
+// - implement position monitoring for all axis.
+// - clamp result of PD.
+// - make random number test.
