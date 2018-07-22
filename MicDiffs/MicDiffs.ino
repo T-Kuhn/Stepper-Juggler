@@ -88,7 +88,8 @@ void loop()
         Serial.print(constrain(mic12DiffCounter, -200, 200));
         Serial.print(":");
         Serial.print(constrain(mic34DiffCounter, -200, 200));
-        Serial.println("&");
+        Serial.print("&");
+        Serial.println(millis());
 
         ff_reset = false;
         delay(100);

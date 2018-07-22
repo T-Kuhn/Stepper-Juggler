@@ -398,10 +398,10 @@ void loop()
             float vertical = (float)ver;
 
             // DEBUG
-            Serial.print("v: ");
-            Serial.println(ver);
-            Serial.print("h: ");
-            Serial.println(hor);
+            //Serial.print("v: ");
+            //Serial.println(ver);
+            //Serial.print("h: ");
+            //Serial.println(hor);
             // DEBUG
 
             // - - - PID - - -
@@ -427,13 +427,16 @@ void loop()
             float verticalCor = constrain(v_P + v_D, -20, 20) + v_I;
 
             // DEBUG
+            /*
             Serial.print("v cor: ");
             Serial.println(verticalCor);
             Serial.print("h cor: ");
             Serial.println(horizontalCor);
+            */
             // DEBUG
 
             // DEBUG
+            /*
             Serial.print("posX: ");
             Serial.println(posSnapShotTopX);
             Serial.print("posY: ");
@@ -442,6 +445,7 @@ void loop()
             Serial.println(posSnapShotTopZ);
             Serial.print("posA: ");
             Serial.println(posSnapShotTopA);
+            */
             // DEBUG
 
             // - - - ADD UP CORRECTION - - -
