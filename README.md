@@ -1,5 +1,5 @@
 # Stepper Juggler
-Juggling a ping pong ball with 4 stepper motors and 4 mics.
+Keeping a ping pong ball bouncing with 4 stepper motors and 4 mics.
 
 The folder CalculatedMoves contains the code for the Arduino which controls the steppers.
 
