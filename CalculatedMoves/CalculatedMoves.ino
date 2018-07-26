@@ -1,6 +1,5 @@
 #include <DirectIO.h>
 #include "Encoder.h"
-#include "cos_fix.h"
 
 // 9 and 10 are inputs
 Encoder Encoder1(9, 10);
@@ -493,7 +492,3 @@ void loop()
         }
     }
 }
-// MEMO
-// - implement position monitoring for all axis.
-// - clamp result of PD.
-// - make random number test.
