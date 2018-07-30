@@ -4,704 +4,704 @@ dataSet.Enqueue(new DataPoint() { VerticalPos = 1, HorizontalPos = -20, TimeStam
 dataSet.Enqueue(new DataPoint() { VerticalPos = 44, HorizontalPos = -4, TimeStamp_ms = 17806 });
 dataSet.Enqueue(new DataPoint() { VerticalPos = 39, HorizontalPos = -41, TimeStamp_ms = 18145 });
 dataSet.Enqueue(new DataPoint() { VerticalPos = 13, HorizontalPos = -101, TimeStamp_ms = 18510 });
--21:-86&18890
--27:24&19265
--9:164&19631
--2:200&20007
--17:200&20374
--7:168&20749
--1:89&21118
--10:7&21493
--30:-27&21867
--71:-25&22241
--126:-9&22612
--134:-9&22986
--97:-9&23360
--39:-2&23732
-42:-5&24105
-80:-20&24478
-33:-42&24853
--31:-61&25223
--69:-45&25594
--80:1&25968
--42:42&26340
--2:89&26713
-12:61&27086
-17:-17&27460
--9:-113&27831
--48:-98&28205
--109:-7&28574
--107:75&28950
--81:200&29320
--49:200&29697
--33:114&30068
--26:26&30444
--48:-11&30817
--85:-22&31192
--102:-33&31563
--112:-27&31937
--92:-16&32289
--36:-2&32649
-27:1&33029
-62:-2&33395
-38:-9&33769
--11:-23&34144
--43:-13&34519
--44:11&34891
--33:48&35263
--23:85&35632
--20:75&36007
--17:10&36374
--8:-60&36753
--7:-77&37121
-22:-40&37501
-68:20&37868
-82:51&38241
-58:40&38612
-11:-14&38987
--37:-62&39357
--77:-58&39729
--111:-36&40102
--156:-6&40471
--200:14&40822
--175:14&41202
--102:-1&41578
-5:-6&41949
-92:3&42326
-83:2&42695
--3:-9&43071
--117:-18&43445
--200:-20&43816
--189:-12&44173
--172:-7&44529
--157:5&44893
--123:37&45273
--74:61&45634
--51:91&46012
--53:79&46380
--86:27&46757
--106:-10&47128
--81:-30&47505
--33:-14&47860
-16:26&48242
-39:62&48610
-30:60&48987
--1:24&49355
--19:-42&49734
--19:-81&50106
--7:-68&50481
-2:-9&50852
-9:63&51230
-11:91&51599
-20:41&51976
-28:-40&52344
-22:-110&52719
-7:-105&53093
--16:-14&53465
--38:77&53839
--55:101&54211
--58:43&54583
--34:-71&54957
--4:-200&55328
-6:-200&55704
-7:-200&56073
-4:-167&56451
--16:-79&56823
--24:2&57198
--22:71&57573
--16:126&57939
--3:110&58318
-12:14&58685
-20:-100&59064
-14:-138&59432
--5:-88&59811
--35:32&60180
--56:141&60558
--59:200&60930
--44:200&61305
--22:124&61681
-11:18&62048
-32:-83&62427
-36:-141&62794
-22:-138&63174
--14:-43&63541
--43:81&63917
--53:137&64287
--48:127&64663
--38:78&65036
-1:-7&65412
-54:-67&65779
-81:-74&66154
-93:-41&66519
-63:20&66896
--7:118&67264
--50:115&67640
--89:47&68013
--119:0&68385
--95:-21&68756
--53:-8&69129
--15:42&69506
--10:93&69876
--23:99&70247
--33:31&70624
--48:-63&70994
--51:-112&71368
--57:-79&71739
--84:-11&72093
--107:62&72473
--102:97&72842
--105:105&73219
--105:81&73587
--134:53&73931
--157:22&74309
--129:-6&74684
--42:-13&75055
-54:8&75430
-102:45&75800
-67:82&76168
-5:137&76545
--54:105&76911
--103:35&77291
--92:0&77654
--20:-30&78032
-62:-49&78393
-100:-17&78771
-50:34&79139
--44:72&79514
--120:58&79887
--192:10&80256
--200:-41&80631
--179:-74&80998
--91:-64&81350
--16:-5&81712
-21:78&82092
-25:131&82455
-6:131&82831
--22:60&83194
--69:-22&83575
--108:-58&83938
--136:-54&84313
--158:-44&84674
--144:-17&85032
--75:19&85391
-10:77&85753
-61:70&86127
-113:43&86498
-127:1&86866
-108:-22&87237
-81:-6&87611
-17:36&87981
--23:99&88356
--48:96&88725
--75:36&89102
--73:-29&89469
--52:-98&89846
--25:-128&90215
--20:-56&90591
--24:70&90945
--30:165&91325
--33:170&91696
--31:123&92077
--36:36&92444
--51:-18&92822
--55:-46&93191
--79:-51&93568
--115:-54&93935
--130:-57&94315
--98:-48&94667
--20:-44&95028
-70:-18&95405
-135:9&95771
-113:15&96147
-20:17&96517
--88:7&96891
--136:0&97265
--140:7&97636
--114:16&98014
--110:36&98378
--123:41&98759
--128:23&99124
--115:-9&99500
--51:-28&99871
-12:-27&100242
-49:-5&100617
-39:29&100989
--7:100&101361
--52:101&101734
--91:38&102109
--84:-27&102462
--20:-125&102839
-25:-123&103214
-52:-40&103568
-50:90&103921
-25:187&104299
--16:200&104678
--45:125&105050
--90:50&105397
--132:-3&105758
--135:-46&106133
--93:-71&106500
--64:-59&106849
--80:-14&107208
--97:27&107577
--83:37&107938
--50:-15&108316
--7:-104&108686
-26:-128&109033
-50:-68&109399
-65:10&109765
-43:62&110142
-16:94&110511
-7:36&110888
-12:-78&111258
-20:-157&111631
-22:-121&112007
-11:-5&112359
-2:137&112719
--10:200&113096
--12:200&113466
--8:153&113814
--2:62&114179
-19:-59&114554
-45:-138&114925
-58:-135&115302
-54:-52&115657
-20:59&116016
--8:136&116397
--25:133&116766
--37:72&117147
--58:25&117501
--86:-4&117884
--88:-10&118252
--87:-19&118630
--78:-28&118988
--75:-21&119342
--66:-11&119702
--40:-2&120071
--9:-3&120433
-6:-21&120815
--1:-24&121181
--28:-17&121555
--50:-10&121928
--62:-4&122276
--55:-3&122639
--17:-6&123015
-26:3&123386
-80:17&123758
-97:17&124129
-29:-14&124498
--55:-64&124875
--107:-86&125241
--184:-73&125592
--200:-45&125953
--174:-25&126318
--122:-25&126678
--49:-33&127039
--10:-61&127401
--23:-57&127760
--40:-38&128120
--44:-34&128484
--53:-46&128849
--75:-57&129210
--77:-72&129568
--57:-70&129928
--22:-32&130291
-12:17&130657
-37:39&131013
-42:23&131393
-53:-26&131765
-50:-97&132134
-40:-131&132510
-17:-101&132880
--26:-11&133233
--72:75&133594
--100:95&133957
--127:73&134334
--150:25&134692
--137:-30&135047
--85:-73&135410
--71:-97&135773
--101:-70&136136
--140:-18&136495
--140:20&136853
--88:37&137218
--14:30&137582
-78:7&137959
-117:-19&138323
-69:-50&138700
--21:-90&139065
--135:-84&139443
--200:-55&139797
--200:-41&140153
--200:-32&140509
--200:33&140853
--200:-27&141190
--200:-55&141531
--179:-72&141890
--78:-72&142263
--3:-58&142648
-21:-7&143040
-5:35&143432
--34:60&143788
--95:43&144171
--152:13&144538
--137:-27&144917
--70:-59&145273
--2:-127&145628
-21:-133&145989
-10:-64&146358
--16:25&146721
--57:68&147097
--101:41&147463
--123:-27&147834
--83:-92&148198
--43:-149&148551
--14:-153&148909
-22:-102&149277
-61:-23&149644
-52:13&149997
--19:-17&150377
--77:-73&150751
--96:-111&151099
--88:-117&151460
--70:-113&151824
--40:-105&152189
--11:-82&152553
--1:-45&152911
--3:-2&153271
--9:20&153652
--36:5&154017
--68:-26&154394
--67:-51&154759
--45:-48&155112
--1:-14&155469
-44:23&155833
-41:38&156210
-14:21&156579
--28:-37&156954
--64:-91&157318
--69:-84&157672
--66:-50&158030
--72:-8&158397
--56:37&158764
--41:85&159138
--38:65&159509
--52:-25&159884
--50:-126&160254
--46:-200&160608
--49:-199&160964
--60:-140&161331
--71:-75&161699
--68:-35&162057
--37:-31&162411
-6:-62&162771
-38:-85&163139
-38:-86&163514
--11:-54&163884
--70:25&164258
--83:75&164613
--66:70&164990
--31:45&165364
-19:12&165736
-50:-19&166105
-28:-37&166476
--18:-48&166848
--70:-37&167219
--120:-16&167574
--126:5&167929
--74:4&168294
-8:-36&168671
-42:-75&169039
-37:-88&169408
--25:-80&169780
--114:-29&170152
--170:7&170509
--164:25&170868
--118:31&171246
--33:23&171608
-36:15&171966
-88:-1&172345
-107:-7&172715
-87:-7&173086
-35:0&173459
--24:15&173833
--52:37&174204
--54:52&174576
--41:63&174949
--19:59&175319
-8:39&175693
-15:5&176064
-4:-43&176436
--15:-81&176812
--26:-87&177179
--68:-46&177531
--134:10&177888
--152:42&178249
--126:52&178620
--73:41&178982
-0:32&179335
-69:5&179717
-73:-23&180091
-15:-73&180460
--51:-95&180831
--117:-44&181204
--138:13&181553
--88:47&181911
--26:80&182277
-19:43&182650
-30:-38&183024
-7:-145&183391
--39:-200&183768
--91:-190&184138
--178:-89&184488
--200:-26&184845
--129:17&185212
--25:51&185580
-47:36&185939
-84:-23&186316
-42:-109&186681
--42:-126&187056
--125:-52&187416
--191:15&187768
--200:37&188128
--200:56&188493
--114:60&188859
--42:33&189219
--2:-38&189582
-0:-135&189956
--14:-200&190322
--25:-200&190699
--57:-84&191058
--94:-9&191410
--94:21&191770
--50:29&192143
--2:51&192515
-19:57&192889
--11:38&193256
--67:-7&193628
--105:-43&194001
--92:-60&194369
--62:-102&194721
--38:-144&195079
--26:-163&195445
--35:-99&195811
--63:-18&196170
--80:30&196528
--63:47&196889
--39:36&197265
--17:37&197635
--8:43&198011
--19:36&198380
--38:15&198756
--56:-5&199126
--42:-29&199501
--9:-40&199868
-18:-41&200222
-29:-26&200601
-10:-16&200975
--22:-20&201350
--36:-54&201723
--20:-88&202072
-18:-100&202433
-57:-59&202800
-72:-21&203164
-29:-19&203537
--43:-64&203908
--88:-169&204279
--99:-174&204636
--91:-171&204989
--77:-178&205351
--66:-122&205721
--47:-91&206084
--27:-85&206438
--19:-93&206796
--25:-102&207160
--37:-86&207525
--43:-53&207886
--36:-23&208244
--14:-14&208610
-9:-46&208967
-19:-83&209325
-1:-91&209702
--32:-31&210074
--60:34&210447
--61:72&210801
--44:89&211177
--20:58&211548
--1:-18&211919
-4:-94&212292
-17:-108&212662
-45:-48&213037
-76:22&213390
-47:45&213763
-7:28&214134
--48:-49&214501
--80:-108&214868
--68:-137&215231
--37:-126&215587
--1:-89&215952
-3:-41&216316
--11:6&216690
--51:4&217056
--85:-43&217430
--72:-82&217795
--34:-122&218149
--2:-131&218508
-34:-77&218872
-57:-9&219238
-39:-5&219607
--25:-51&219976
--77:-75&220342
--86:-81&220704
--49:-93&221065
-11:-102&221427
-81:-55&221785
-114:-20&222142
-69:-21&222515
--4:-47&222883
--52:-74&223258
--78:-94&223623
--89:-111&223978
--84:-117&224336
--76:-114&224701
--73:-114&225065
--66:-106&225426
--52:-89&225785
--32:-62&226146
--20:-43&226508
--26:-51&226871
--38:-65&227231
--44:-86&227591
--31:-91&227954
--11:-52&228317
-22:18&228676
-41:75&229035
-27:71&229409
-7:18&229777
--18:-68&230152
--49:-144&230519
--60:-193&230867
--67:-189&231227
--68:-92&231595
--88:-43&231955
--87:-21&232313
--79:-7&232669
--40:7&233030
--20:16&233399
--42:10&233764
--81:-17&234137
--63:-41&234503
--12:-53&234853
-30:-58&235207
-75:-55&235574
-82:-44&235943
-20:-14&236309
--63:-1&236682
--113:-14&237048
--96:-36&237421
--45:-74&237778
--10:-122&238133
-7:-138&238490
-10:-118&238860
-0:-69&239233
--1:-38&239590
--15:-14&239967
--22:-29&240334
--16:-85&240687
--5:-127&241040
-10:-124&241405
-26:-81&241774
-44:2&242136
-30:46&242506
-4:44&242872
--38:-10&243246
--89:-74&243608
--107:-97&243957
--98:-124&244318
--87:-180&244683
--89:-179&245048
--94:-170&245413
--76:-113&245775
--48:-70&246133
--11:-63&246492
-22:-74&246850
-32:-114&247214
-13:-121&247583
--18:-59&247950
--52:26&248306
--56:83&248662
--44:109&249034
--18:61&249403
-23:-51&249764
-61:-138&250135
-81:-181&250507
-87:-178&250859
-82:-71&251218
-52:28&251575
-10:92&251947
--23:72&252319
--62:-4&252688
--83:-93&253056
--95:-162&253424
--103:-169&253782
--117:-149&254135
--109:-152&254497
--83:-105&254864
--21:-72&255232
-40:-60&255593
-67:-71&255943
-67:-99&256312
-38:-131&256684
--2:-132&257053
--27:-82&257414
--46:-11&257766
--33:30&258126
--17:38&258491
-19:5&258862
-50:-39&259232
-53:-42&259598
-22:-35&259969
--38:-23&260339
--86:-28&260707
--99:-34&261066
--77:-31&261421
--36:-24&261780
-6:-19&262145
-13:-22&262511
--29:-43&262880
--70:-55&263250
--76:-66&263609
--47:-80&263957
-7:-72&264317
-59:-33&264687
-92:2&265050
-55:4&265420
--43:-21&265790
--130:-61&266163
--186:-92&266519
--147:-121&266871
--183:-146&267232
--124:-141&267596
--81:-112&267963
--51:-58&268326
--24:-26&268684
--5:-22&269045
-9:-42&269406
-10:-90&269780
-1:-121&270148
--15:-89&270523
--30:-27&270893
--59:5&271244
--91:20&271602
--106:5&271971
--80:-39&272344
--32:-108&272708
-12:-200&273064
-42:-200&273423
-53:-200&273788
-42:-72&274153
-18:39&274511
--2:73&274889
--17:15&275258
--34:-90&275632
--55:-163&276352
+dataSet.Enqueue(new DataPoint() { VerticalPos = -21, HorizontalPos = -86, TimeStamp_ms = 18890 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -27, HorizontalPos = 24, TimeStamp_ms = 19265 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -9, HorizontalPos = 164, TimeStamp_ms = 19631 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -2, HorizontalPos = 200, TimeStamp_ms = 20007 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -17, HorizontalPos = 200, TimeStamp_ms = 20374 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -7, HorizontalPos = 168, TimeStamp_ms = 20749 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -1, HorizontalPos = 89, TimeStamp_ms = 21118 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -10, HorizontalPos = 7, TimeStamp_ms = 21493 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -30, HorizontalPos = -27, TimeStamp_ms = 21867 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -71, HorizontalPos = -25, TimeStamp_ms = 22241 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -126, HorizontalPos = -9, TimeStamp_ms = 22612 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -134, HorizontalPos = -9, TimeStamp_ms = 22986 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -97, HorizontalPos = -9, TimeStamp_ms = 23360 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -39, HorizontalPos = -2, TimeStamp_ms = 23732 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 42, HorizontalPos = -5, TimeStamp_ms = 24105 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 80, HorizontalPos = -20, TimeStamp_ms = 24478 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 33, HorizontalPos = -42, TimeStamp_ms = 24853 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -31, HorizontalPos = -61, TimeStamp_ms = 25223 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -69, HorizontalPos = -45, TimeStamp_ms = 25594 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -80, HorizontalPos = 1, TimeStamp_ms = 25968 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -42, HorizontalPos = 42, TimeStamp_ms = 26340 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -2, HorizontalPos = 89, TimeStamp_ms = 26713 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 12, HorizontalPos = 61, TimeStamp_ms = 27086 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 17, HorizontalPos = -17, TimeStamp_ms = 27460 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -9, HorizontalPos = -113, TimeStamp_ms = 27831 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -48, HorizontalPos = -98, TimeStamp_ms = 28205 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -109, HorizontalPos = -7, TimeStamp_ms = 28574 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -107, HorizontalPos = 75, TimeStamp_ms = 28950 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -81, HorizontalPos = 200, TimeStamp_ms = 29320 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -49, HorizontalPos = 200, TimeStamp_ms = 29697 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -33, HorizontalPos = 114, TimeStamp_ms = 30068 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -26, HorizontalPos = 26, TimeStamp_ms = 30444 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -48, HorizontalPos = -11, TimeStamp_ms = 30817 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -85, HorizontalPos = -22, TimeStamp_ms = 31192 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -102, HorizontalPos = -33, TimeStamp_ms = 31563 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -112, HorizontalPos = -27, TimeStamp_ms = 31937 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -92, HorizontalPos = -16, TimeStamp_ms = 32289 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -36, HorizontalPos = -2, TimeStamp_ms = 32649 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 27, HorizontalPos = 1, TimeStamp_ms = 33029 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 62, HorizontalPos = -2, TimeStamp_ms = 33395 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 38, HorizontalPos = -9, TimeStamp_ms = 33769 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -11, HorizontalPos = -23, TimeStamp_ms = 34144 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -43, HorizontalPos = -13, TimeStamp_ms = 34519 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -44, HorizontalPos = 11, TimeStamp_ms = 34891 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -33, HorizontalPos = 48, TimeStamp_ms = 35263 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -23, HorizontalPos = 85, TimeStamp_ms = 35632 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -20, HorizontalPos = 75, TimeStamp_ms = 36007 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -17, HorizontalPos = 10, TimeStamp_ms = 36374 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -8, HorizontalPos = -60, TimeStamp_ms = 36753 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -7, HorizontalPos = -77, TimeStamp_ms = 37121 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 22, HorizontalPos = -40, TimeStamp_ms = 37501 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 68, HorizontalPos = 20, TimeStamp_ms = 37868 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 82, HorizontalPos = 51, TimeStamp_ms = 38241 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 58, HorizontalPos = 40, TimeStamp_ms = 38612 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 11, HorizontalPos = -14, TimeStamp_ms = 38987 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -37, HorizontalPos = -62, TimeStamp_ms = 39357 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -77, HorizontalPos = -58, TimeStamp_ms = 39729 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -111, HorizontalPos = -36, TimeStamp_ms = 40102 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -156, HorizontalPos = -6, TimeStamp_ms = 40471 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = 14, TimeStamp_ms = 40822 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -175, HorizontalPos = 14, TimeStamp_ms = 41202 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -102, HorizontalPos = -1, TimeStamp_ms = 41578 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 5, HorizontalPos = -6, TimeStamp_ms = 41949 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 92, HorizontalPos = 3, TimeStamp_ms = 42326 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 83, HorizontalPos = 2, TimeStamp_ms = 42695 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -3, HorizontalPos = -9, TimeStamp_ms = 43071 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -117, HorizontalPos = -18, TimeStamp_ms = 43445 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = -20, TimeStamp_ms = 43816 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -189, HorizontalPos = -12, TimeStamp_ms = 44173 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -172, HorizontalPos = -7, TimeStamp_ms = 44529 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -157, HorizontalPos = 5, TimeStamp_ms = 44893 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -123, HorizontalPos = 37, TimeStamp_ms = 45273 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -74, HorizontalPos = 61, TimeStamp_ms = 45634 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -51, HorizontalPos = 91, TimeStamp_ms = 46012 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -53, HorizontalPos = 79, TimeStamp_ms = 46380 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -86, HorizontalPos = 27, TimeStamp_ms = 46757 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -106, HorizontalPos = -10, TimeStamp_ms = 47128 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -81, HorizontalPos = -30, TimeStamp_ms = 47505 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -33, HorizontalPos = -14, TimeStamp_ms = 47860 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 16, HorizontalPos = 26, TimeStamp_ms = 48242 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 39, HorizontalPos = 62, TimeStamp_ms = 48610 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 30, HorizontalPos = 60, TimeStamp_ms = 48987 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -1, HorizontalPos = 24, TimeStamp_ms = 49355 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -19, HorizontalPos = -42, TimeStamp_ms = 49734 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -19, HorizontalPos = -81, TimeStamp_ms = 50106 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -7, HorizontalPos = -68, TimeStamp_ms = 50481 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 2, HorizontalPos = -9, TimeStamp_ms = 50852 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 9, HorizontalPos = 63, TimeStamp_ms = 51230 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 11, HorizontalPos = 91, TimeStamp_ms = 51599 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 20, HorizontalPos = 41, TimeStamp_ms = 51976 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 28, HorizontalPos = -40, TimeStamp_ms = 52344 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 22, HorizontalPos = -110, TimeStamp_ms = 52719 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 7, HorizontalPos = -105, TimeStamp_ms = 53093 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -16, HorizontalPos = -14, TimeStamp_ms = 53465 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -38, HorizontalPos = 77, TimeStamp_ms = 53839 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -55, HorizontalPos = 101, TimeStamp_ms = 54211 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -58, HorizontalPos = 43, TimeStamp_ms = 54583 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -34, HorizontalPos = -71, TimeStamp_ms = 54957 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -4, HorizontalPos = -200, TimeStamp_ms = 55328 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 6, HorizontalPos = -200, TimeStamp_ms = 55704 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 7, HorizontalPos = -200, TimeStamp_ms = 56073 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 4, HorizontalPos = -167, TimeStamp_ms = 56451 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -16, HorizontalPos = -79, TimeStamp_ms = 56823 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -24, HorizontalPos = 2, TimeStamp_ms = 57198 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -22, HorizontalPos = 71, TimeStamp_ms = 57573 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -16, HorizontalPos = 126, TimeStamp_ms = 57939 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -3, HorizontalPos = 110, TimeStamp_ms = 58318 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 12, HorizontalPos = 14, TimeStamp_ms = 58685 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 20, HorizontalPos = -100, TimeStamp_ms = 59064 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 14, HorizontalPos = -138, TimeStamp_ms = 59432 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -5, HorizontalPos = -88, TimeStamp_ms = 59811 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -35, HorizontalPos = 32, TimeStamp_ms = 60180 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -56, HorizontalPos = 141, TimeStamp_ms = 60558 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -59, HorizontalPos = 200, TimeStamp_ms = 60930 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -44, HorizontalPos = 200, TimeStamp_ms = 61305 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -22, HorizontalPos = 124, TimeStamp_ms = 61681 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 11, HorizontalPos = 18, TimeStamp_ms = 62048 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 32, HorizontalPos = -83, TimeStamp_ms = 62427 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 36, HorizontalPos = -141, TimeStamp_ms = 62794 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 22, HorizontalPos = -138, TimeStamp_ms = 63174 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -14, HorizontalPos = -43, TimeStamp_ms = 63541 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -43, HorizontalPos = 81, TimeStamp_ms = 63917 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -53, HorizontalPos = 137, TimeStamp_ms = 64287 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -48, HorizontalPos = 127, TimeStamp_ms = 64663 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -38, HorizontalPos = 78, TimeStamp_ms = 65036 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 1, HorizontalPos = -7, TimeStamp_ms = 65412 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 54, HorizontalPos = -67, TimeStamp_ms = 65779 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 81, HorizontalPos = -74, TimeStamp_ms = 66154 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 93, HorizontalPos = -41, TimeStamp_ms = 66519 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 63, HorizontalPos = 20, TimeStamp_ms = 66896 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -7, HorizontalPos = 118, TimeStamp_ms = 67264 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -50, HorizontalPos = 115, TimeStamp_ms = 67640 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -89, HorizontalPos = 47, TimeStamp_ms = 68013 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -119, HorizontalPos = 0, TimeStamp_ms = 68385 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -95, HorizontalPos = -21, TimeStamp_ms = 68756 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -53, HorizontalPos = -8, TimeStamp_ms = 69129 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -15, HorizontalPos = 42, TimeStamp_ms = 69506 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -10, HorizontalPos = 93, TimeStamp_ms = 69876 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -23, HorizontalPos = 99, TimeStamp_ms = 70247 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -33, HorizontalPos = 31, TimeStamp_ms = 70624 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -48, HorizontalPos = -63, TimeStamp_ms = 70994 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -51, HorizontalPos = -112, TimeStamp_ms = 71368 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -57, HorizontalPos = -79, TimeStamp_ms = 71739 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -84, HorizontalPos = -11, TimeStamp_ms = 72093 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -107, HorizontalPos = 62, TimeStamp_ms = 72473 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -102, HorizontalPos = 97, TimeStamp_ms = 72842 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -105, HorizontalPos = 105, TimeStamp_ms = 73219 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -105, HorizontalPos = 81, TimeStamp_ms = 73587 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -134, HorizontalPos = 53, TimeStamp_ms = 73931 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -157, HorizontalPos = 22, TimeStamp_ms = 74309 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -129, HorizontalPos = -6, TimeStamp_ms = 74684 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -42, HorizontalPos = -13, TimeStamp_ms = 75055 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 54, HorizontalPos = 8, TimeStamp_ms = 75430 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 102, HorizontalPos = 45, TimeStamp_ms = 75800 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 67, HorizontalPos = 82, TimeStamp_ms = 76168 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 5, HorizontalPos = 137, TimeStamp_ms = 76545 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -54, HorizontalPos = 105, TimeStamp_ms = 76911 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -103, HorizontalPos = 35, TimeStamp_ms = 77291 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -92, HorizontalPos = 0, TimeStamp_ms = 77654 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -20, HorizontalPos = -30, TimeStamp_ms = 78032 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 62, HorizontalPos = -49, TimeStamp_ms = 78393 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 100, HorizontalPos = -17, TimeStamp_ms = 78771 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 50, HorizontalPos = 34, TimeStamp_ms = 79139 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -44, HorizontalPos = 72, TimeStamp_ms = 79514 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -120, HorizontalPos = 58, TimeStamp_ms = 79887 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -192, HorizontalPos = 10, TimeStamp_ms = 80256 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = -41, TimeStamp_ms = 80631 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -179, HorizontalPos = -74, TimeStamp_ms = 80998 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -91, HorizontalPos = -64, TimeStamp_ms = 81350 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -16, HorizontalPos = -5, TimeStamp_ms = 81712 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 21, HorizontalPos = 78, TimeStamp_ms = 82092 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 25, HorizontalPos = 131, TimeStamp_ms = 82455 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 6, HorizontalPos = 131, TimeStamp_ms = 82831 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -22, HorizontalPos = 60, TimeStamp_ms = 83194 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -69, HorizontalPos = -22, TimeStamp_ms = 83575 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -108, HorizontalPos = -58, TimeStamp_ms = 83938 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -136, HorizontalPos = -54, TimeStamp_ms = 84313 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -158, HorizontalPos = -44, TimeStamp_ms = 84674 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -144, HorizontalPos = -17, TimeStamp_ms = 85032 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -75, HorizontalPos = 19, TimeStamp_ms = 85391 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 10, HorizontalPos = 77, TimeStamp_ms = 85753 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 61, HorizontalPos = 70, TimeStamp_ms = 86127 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 113, HorizontalPos = 43, TimeStamp_ms = 86498 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 127, HorizontalPos = 1, TimeStamp_ms = 86866 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 108, HorizontalPos = -22, TimeStamp_ms = 87237 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 81, HorizontalPos = -6, TimeStamp_ms = 87611 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 17, HorizontalPos = 36, TimeStamp_ms = 87981 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -23, HorizontalPos = 99, TimeStamp_ms = 88356 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -48, HorizontalPos = 96, TimeStamp_ms = 88725 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -75, HorizontalPos = 36, TimeStamp_ms = 89102 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -73, HorizontalPos = -29, TimeStamp_ms = 89469 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -52, HorizontalPos = -98, TimeStamp_ms = 89846 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -25, HorizontalPos = -128, TimeStamp_ms = 90215 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -20, HorizontalPos = -56, TimeStamp_ms = 90591 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -24, HorizontalPos = 70, TimeStamp_ms = 90945 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -30, HorizontalPos = 165, TimeStamp_ms = 91325 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -33, HorizontalPos = 170, TimeStamp_ms = 91696 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -31, HorizontalPos = 123, TimeStamp_ms = 92077 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -36, HorizontalPos = 36, TimeStamp_ms = 92444 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -51, HorizontalPos = -18, TimeStamp_ms = 92822 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -55, HorizontalPos = -46, TimeStamp_ms = 93191 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -79, HorizontalPos = -51, TimeStamp_ms = 93568 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -115, HorizontalPos = -54, TimeStamp_ms = 93935 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -130, HorizontalPos = -57, TimeStamp_ms = 94315 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -98, HorizontalPos = -48, TimeStamp_ms = 94667 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -20, HorizontalPos = -44, TimeStamp_ms = 95028 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 70, HorizontalPos = -18, TimeStamp_ms = 95405 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 135, HorizontalPos = 9, TimeStamp_ms = 95771 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 113, HorizontalPos = 15, TimeStamp_ms = 96147 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 20, HorizontalPos = 17, TimeStamp_ms = 96517 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -88, HorizontalPos = 7, TimeStamp_ms = 96891 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -136, HorizontalPos = 0, TimeStamp_ms = 97265 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -140, HorizontalPos = 7, TimeStamp_ms = 97636 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -114, HorizontalPos = 16, TimeStamp_ms = 98014 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -110, HorizontalPos = 36, TimeStamp_ms = 98378 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -123, HorizontalPos = 41, TimeStamp_ms = 98759 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -128, HorizontalPos = 23, TimeStamp_ms = 99124 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -115, HorizontalPos = -9, TimeStamp_ms = 99500 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -51, HorizontalPos = -28, TimeStamp_ms = 99871 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 12, HorizontalPos = -27, TimeStamp_ms = 100242 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 49, HorizontalPos = -5, TimeStamp_ms = 100617 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 39, HorizontalPos = 29, TimeStamp_ms = 100989 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -7, HorizontalPos = 100, TimeStamp_ms = 101361 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -52, HorizontalPos = 101, TimeStamp_ms = 101734 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -91, HorizontalPos = 38, TimeStamp_ms = 102109 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -84, HorizontalPos = -27, TimeStamp_ms = 102462 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -20, HorizontalPos = -125, TimeStamp_ms = 102839 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 25, HorizontalPos = -123, TimeStamp_ms = 103214 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 52, HorizontalPos = -40, TimeStamp_ms = 103568 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 50, HorizontalPos = 90, TimeStamp_ms = 103921 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 25, HorizontalPos = 187, TimeStamp_ms = 104299 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -16, HorizontalPos = 200, TimeStamp_ms = 104678 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -45, HorizontalPos = 125, TimeStamp_ms = 105050 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -90, HorizontalPos = 50, TimeStamp_ms = 105397 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -132, HorizontalPos = -3, TimeStamp_ms = 105758 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -135, HorizontalPos = -46, TimeStamp_ms = 106133 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -93, HorizontalPos = -71, TimeStamp_ms = 106500 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -64, HorizontalPos = -59, TimeStamp_ms = 106849 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -80, HorizontalPos = -14, TimeStamp_ms = 107208 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -97, HorizontalPos = 27, TimeStamp_ms = 107577 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -83, HorizontalPos = 37, TimeStamp_ms = 107938 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -50, HorizontalPos = -15, TimeStamp_ms = 108316 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -7, HorizontalPos = -104, TimeStamp_ms = 108686 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 26, HorizontalPos = -128, TimeStamp_ms = 109033 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 50, HorizontalPos = -68, TimeStamp_ms = 109399 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 65, HorizontalPos = 10, TimeStamp_ms = 109765 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 43, HorizontalPos = 62, TimeStamp_ms = 110142 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 16, HorizontalPos = 94, TimeStamp_ms = 110511 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 7, HorizontalPos = 36, TimeStamp_ms = 110888 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 12, HorizontalPos = -78, TimeStamp_ms = 111258 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 20, HorizontalPos = -157, TimeStamp_ms = 111631 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 22, HorizontalPos = -121, TimeStamp_ms = 112007 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 11, HorizontalPos = -5, TimeStamp_ms = 112359 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 2, HorizontalPos = 137, TimeStamp_ms = 112719 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -10, HorizontalPos = 200, TimeStamp_ms = 113096 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -12, HorizontalPos = 200, TimeStamp_ms = 113466 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -8, HorizontalPos = 153, TimeStamp_ms = 113814 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -2, HorizontalPos = 62, TimeStamp_ms = 114179 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 19, HorizontalPos = -59, TimeStamp_ms = 114554 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 45, HorizontalPos = -138, TimeStamp_ms = 114925 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 58, HorizontalPos = -135, TimeStamp_ms = 115302 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 54, HorizontalPos = -52, TimeStamp_ms = 115657 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 20, HorizontalPos = 59, TimeStamp_ms = 116016 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -8, HorizontalPos = 136, TimeStamp_ms = 116397 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -25, HorizontalPos = 133, TimeStamp_ms = 116766 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -37, HorizontalPos = 72, TimeStamp_ms = 117147 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -58, HorizontalPos = 25, TimeStamp_ms = 117501 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -86, HorizontalPos = -4, TimeStamp_ms = 117884 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -88, HorizontalPos = -10, TimeStamp_ms = 118252 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -87, HorizontalPos = -19, TimeStamp_ms = 118630 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -78, HorizontalPos = -28, TimeStamp_ms = 118988 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -75, HorizontalPos = -21, TimeStamp_ms = 119342 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -66, HorizontalPos = -11, TimeStamp_ms = 119702 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -40, HorizontalPos = -2, TimeStamp_ms = 120071 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -9, HorizontalPos = -3, TimeStamp_ms = 120433 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 6, HorizontalPos = -21, TimeStamp_ms = 120815 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -1, HorizontalPos = -24, TimeStamp_ms = 121181 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -28, HorizontalPos = -17, TimeStamp_ms = 121555 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -50, HorizontalPos = -10, TimeStamp_ms = 121928 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -62, HorizontalPos = -4, TimeStamp_ms = 122276 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -55, HorizontalPos = -3, TimeStamp_ms = 122639 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -17, HorizontalPos = -6, TimeStamp_ms = 123015 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 26, HorizontalPos = 3, TimeStamp_ms = 123386 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 80, HorizontalPos = 17, TimeStamp_ms = 123758 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 97, HorizontalPos = 17, TimeStamp_ms = 124129 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 29, HorizontalPos = -14, TimeStamp_ms = 124498 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -55, HorizontalPos = -64, TimeStamp_ms = 124875 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -107, HorizontalPos = -86, TimeStamp_ms = 125241 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -184, HorizontalPos = -73, TimeStamp_ms = 125592 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = -45, TimeStamp_ms = 125953 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -174, HorizontalPos = -25, TimeStamp_ms = 126318 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -122, HorizontalPos = -25, TimeStamp_ms = 126678 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -49, HorizontalPos = -33, TimeStamp_ms = 127039 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -10, HorizontalPos = -61, TimeStamp_ms = 127401 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -23, HorizontalPos = -57, TimeStamp_ms = 127760 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -40, HorizontalPos = -38, TimeStamp_ms = 128120 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -44, HorizontalPos = -34, TimeStamp_ms = 128484 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -53, HorizontalPos = -46, TimeStamp_ms = 128849 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -75, HorizontalPos = -57, TimeStamp_ms = 129210 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -77, HorizontalPos = -72, TimeStamp_ms = 129568 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -57, HorizontalPos = -70, TimeStamp_ms = 129928 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -22, HorizontalPos = -32, TimeStamp_ms = 130291 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 12, HorizontalPos = 17, TimeStamp_ms = 130657 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 37, HorizontalPos = 39, TimeStamp_ms = 131013 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 42, HorizontalPos = 23, TimeStamp_ms = 131393 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 53, HorizontalPos = -26, TimeStamp_ms = 131765 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 50, HorizontalPos = -97, TimeStamp_ms = 132134 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 40, HorizontalPos = -131, TimeStamp_ms = 132510 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 17, HorizontalPos = -101, TimeStamp_ms = 132880 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -26, HorizontalPos = -11, TimeStamp_ms = 133233 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -72, HorizontalPos = 75, TimeStamp_ms = 133594 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -100, HorizontalPos = 95, TimeStamp_ms = 133957 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -127, HorizontalPos = 73, TimeStamp_ms = 134334 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -150, HorizontalPos = 25, TimeStamp_ms = 134692 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -137, HorizontalPos = -30, TimeStamp_ms = 135047 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -85, HorizontalPos = -73, TimeStamp_ms = 135410 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -71, HorizontalPos = -97, TimeStamp_ms = 135773 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -101, HorizontalPos = -70, TimeStamp_ms = 136136 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -140, HorizontalPos = -18, TimeStamp_ms = 136495 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -140, HorizontalPos = 20, TimeStamp_ms = 136853 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -88, HorizontalPos = 37, TimeStamp_ms = 137218 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -14, HorizontalPos = 30, TimeStamp_ms = 137582 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 78, HorizontalPos = 7, TimeStamp_ms = 137959 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 117, HorizontalPos = -19, TimeStamp_ms = 138323 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 69, HorizontalPos = -50, TimeStamp_ms = 138700 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -21, HorizontalPos = -90, TimeStamp_ms = 139065 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -135, HorizontalPos = -84, TimeStamp_ms = 139443 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = -55, TimeStamp_ms = 139797 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = -41, TimeStamp_ms = 140153 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = -32, TimeStamp_ms = 140509 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = 33, TimeStamp_ms = 140853 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = -27, TimeStamp_ms = 141190 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = -55, TimeStamp_ms = 141531 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -179, HorizontalPos = -72, TimeStamp_ms = 141890 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -78, HorizontalPos = -72, TimeStamp_ms = 142263 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -3, HorizontalPos = -58, TimeStamp_ms = 142648 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 21, HorizontalPos = -7, TimeStamp_ms = 143040 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 5, HorizontalPos = 35, TimeStamp_ms = 143432 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -34, HorizontalPos = 60, TimeStamp_ms = 143788 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -95, HorizontalPos = 43, TimeStamp_ms = 144171 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -152, HorizontalPos = 13, TimeStamp_ms = 144538 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -137, HorizontalPos = -27, TimeStamp_ms = 144917 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -70, HorizontalPos = -59, TimeStamp_ms = 145273 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -2, HorizontalPos = -127, TimeStamp_ms = 145628 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 21, HorizontalPos = -133, TimeStamp_ms = 145989 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 10, HorizontalPos = -64, TimeStamp_ms = 146358 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -16, HorizontalPos = 25, TimeStamp_ms = 146721 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -57, HorizontalPos = 68, TimeStamp_ms = 147097 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -101, HorizontalPos = 41, TimeStamp_ms = 147463 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -123, HorizontalPos = -27, TimeStamp_ms = 147834 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -83, HorizontalPos = -92, TimeStamp_ms = 148198 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -43, HorizontalPos = -149, TimeStamp_ms = 148551 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -14, HorizontalPos = -153, TimeStamp_ms = 148909 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 22, HorizontalPos = -102, TimeStamp_ms = 149277 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 61, HorizontalPos = -23, TimeStamp_ms = 149644 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 52, HorizontalPos = 13, TimeStamp_ms = 149997 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -19, HorizontalPos = -17, TimeStamp_ms = 150377 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -77, HorizontalPos = -73, TimeStamp_ms = 150751 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -96, HorizontalPos = -111, TimeStamp_ms = 151099 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -88, HorizontalPos = -117, TimeStamp_ms = 151460 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -70, HorizontalPos = -113, TimeStamp_ms = 151824 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -40, HorizontalPos = -105, TimeStamp_ms = 152189 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -11, HorizontalPos = -82, TimeStamp_ms = 152553 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -1, HorizontalPos = -45, TimeStamp_ms = 152911 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -3, HorizontalPos = -2, TimeStamp_ms = 153271 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -9, HorizontalPos = 20, TimeStamp_ms = 153652 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -36, HorizontalPos = 5, TimeStamp_ms = 154017 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -68, HorizontalPos = -26, TimeStamp_ms = 154394 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -67, HorizontalPos = -51, TimeStamp_ms = 154759 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -45, HorizontalPos = -48, TimeStamp_ms = 155112 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -1, HorizontalPos = -14, TimeStamp_ms = 155469 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 44, HorizontalPos = 23, TimeStamp_ms = 155833 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 41, HorizontalPos = 38, TimeStamp_ms = 156210 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 14, HorizontalPos = 21, TimeStamp_ms = 156579 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -28, HorizontalPos = -37, TimeStamp_ms = 156954 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -64, HorizontalPos = -91, TimeStamp_ms = 157318 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -69, HorizontalPos = -84, TimeStamp_ms = 157672 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -66, HorizontalPos = -50, TimeStamp_ms = 158030 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -72, HorizontalPos = -8, TimeStamp_ms = 158397 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -56, HorizontalPos = 37, TimeStamp_ms = 158764 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -41, HorizontalPos = 85, TimeStamp_ms = 159138 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -38, HorizontalPos = 65, TimeStamp_ms = 159509 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -52, HorizontalPos = -25, TimeStamp_ms = 159884 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -50, HorizontalPos = -126, TimeStamp_ms = 160254 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -46, HorizontalPos = -200, TimeStamp_ms = 160608 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -49, HorizontalPos = -199, TimeStamp_ms = 160964 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -60, HorizontalPos = -140, TimeStamp_ms = 161331 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -71, HorizontalPos = -75, TimeStamp_ms = 161699 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -68, HorizontalPos = -35, TimeStamp_ms = 162057 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -37, HorizontalPos = -31, TimeStamp_ms = 162411 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 6, HorizontalPos = -62, TimeStamp_ms = 162771 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 38, HorizontalPos = -85, TimeStamp_ms = 163139 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 38, HorizontalPos = -86, TimeStamp_ms = 163514 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -11, HorizontalPos = -54, TimeStamp_ms = 163884 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -70, HorizontalPos = 25, TimeStamp_ms = 164258 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -83, HorizontalPos = 75, TimeStamp_ms = 164613 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -66, HorizontalPos = 70, TimeStamp_ms = 164990 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -31, HorizontalPos = 45, TimeStamp_ms = 165364 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 19, HorizontalPos = 12, TimeStamp_ms = 165736 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 50, HorizontalPos = -19, TimeStamp_ms = 166105 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 28, HorizontalPos = -37, TimeStamp_ms = 166476 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -18, HorizontalPos = -48, TimeStamp_ms = 166848 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -70, HorizontalPos = -37, TimeStamp_ms = 167219 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -120, HorizontalPos = -16, TimeStamp_ms = 167574 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -126, HorizontalPos = 5, TimeStamp_ms = 167929 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -74, HorizontalPos = 4, TimeStamp_ms = 168294 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 8, HorizontalPos = -36, TimeStamp_ms = 168671 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 42, HorizontalPos = -75, TimeStamp_ms = 169039 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 37, HorizontalPos = -88, TimeStamp_ms = 169408 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -25, HorizontalPos = -80, TimeStamp_ms = 169780 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -114, HorizontalPos = -29, TimeStamp_ms = 170152 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -170, HorizontalPos = 7, TimeStamp_ms = 170509 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -164, HorizontalPos = 25, TimeStamp_ms = 170868 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -118, HorizontalPos = 31, TimeStamp_ms = 171246 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -33, HorizontalPos = 23, TimeStamp_ms = 171608 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 36, HorizontalPos = 15, TimeStamp_ms = 171966 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 88, HorizontalPos = -1, TimeStamp_ms = 172345 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 107, HorizontalPos = -7, TimeStamp_ms = 172715 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 87, HorizontalPos = -7, TimeStamp_ms = 173086 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 35, HorizontalPos = 0, TimeStamp_ms = 173459 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -24, HorizontalPos = 15, TimeStamp_ms = 173833 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -52, HorizontalPos = 37, TimeStamp_ms = 174204 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -54, HorizontalPos = 52, TimeStamp_ms = 174576 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -41, HorizontalPos = 63, TimeStamp_ms = 174949 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -19, HorizontalPos = 59, TimeStamp_ms = 175319 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 8, HorizontalPos = 39, TimeStamp_ms = 175693 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 15, HorizontalPos = 5, TimeStamp_ms = 176064 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 4, HorizontalPos = -43, TimeStamp_ms = 176436 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -15, HorizontalPos = -81, TimeStamp_ms = 176812 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -26, HorizontalPos = -87, TimeStamp_ms = 177179 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -68, HorizontalPos = -46, TimeStamp_ms = 177531 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -134, HorizontalPos = 10, TimeStamp_ms = 177888 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -152, HorizontalPos = 42, TimeStamp_ms = 178249 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -126, HorizontalPos = 52, TimeStamp_ms = 178620 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -73, HorizontalPos = 41, TimeStamp_ms = 178982 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 0, HorizontalPos = 32, TimeStamp_ms = 179335 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 69, HorizontalPos = 5, TimeStamp_ms = 179717 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 73, HorizontalPos = -23, TimeStamp_ms = 180091 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 15, HorizontalPos = -73, TimeStamp_ms = 180460 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -51, HorizontalPos = -95, TimeStamp_ms = 180831 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -117, HorizontalPos = -44, TimeStamp_ms = 181204 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -138, HorizontalPos = 13, TimeStamp_ms = 181553 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -88, HorizontalPos = 47, TimeStamp_ms = 181911 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -26, HorizontalPos = 80, TimeStamp_ms = 182277 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 19, HorizontalPos = 43, TimeStamp_ms = 182650 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 30, HorizontalPos = -38, TimeStamp_ms = 183024 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 7, HorizontalPos = -145, TimeStamp_ms = 183391 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -39, HorizontalPos = -200, TimeStamp_ms = 183768 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -91, HorizontalPos = -190, TimeStamp_ms = 184138 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -178, HorizontalPos = -89, TimeStamp_ms = 184488 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = -26, TimeStamp_ms = 184845 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -129, HorizontalPos = 17, TimeStamp_ms = 185212 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -25, HorizontalPos = 51, TimeStamp_ms = 185580 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 47, HorizontalPos = 36, TimeStamp_ms = 185939 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 84, HorizontalPos = -23, TimeStamp_ms = 186316 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 42, HorizontalPos = -109, TimeStamp_ms = 186681 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -42, HorizontalPos = -126, TimeStamp_ms = 187056 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -125, HorizontalPos = -52, TimeStamp_ms = 187416 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -191, HorizontalPos = 15, TimeStamp_ms = 187768 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = 37, TimeStamp_ms = 188128 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -200, HorizontalPos = 56, TimeStamp_ms = 188493 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -114, HorizontalPos = 60, TimeStamp_ms = 188859 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -42, HorizontalPos = 33, TimeStamp_ms = 189219 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -2, HorizontalPos = -38, TimeStamp_ms = 189582 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 0, HorizontalPos = -135, TimeStamp_ms = 189956 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -14, HorizontalPos = -200, TimeStamp_ms = 190322 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -25, HorizontalPos = -200, TimeStamp_ms = 190699 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -57, HorizontalPos = -84, TimeStamp_ms = 191058 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -94, HorizontalPos = -9, TimeStamp_ms = 191410 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -94, HorizontalPos = 21, TimeStamp_ms = 191770 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -50, HorizontalPos = 29, TimeStamp_ms = 192143 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -2, HorizontalPos = 51, TimeStamp_ms = 192515 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 19, HorizontalPos = 57, TimeStamp_ms = 192889 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -11, HorizontalPos = 38, TimeStamp_ms = 193256 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -67, HorizontalPos = -7, TimeStamp_ms = 193628 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -105, HorizontalPos = -43, TimeStamp_ms = 194001 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -92, HorizontalPos = -60, TimeStamp_ms = 194369 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -62, HorizontalPos = -102, TimeStamp_ms = 194721 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -38, HorizontalPos = -144, TimeStamp_ms = 195079 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -26, HorizontalPos = -163, TimeStamp_ms = 195445 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -35, HorizontalPos = -99, TimeStamp_ms = 195811 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -63, HorizontalPos = -18, TimeStamp_ms = 196170 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -80, HorizontalPos = 30, TimeStamp_ms = 196528 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -63, HorizontalPos = 47, TimeStamp_ms = 196889 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -39, HorizontalPos = 36, TimeStamp_ms = 197265 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -17, HorizontalPos = 37, TimeStamp_ms = 197635 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -8, HorizontalPos = 43, TimeStamp_ms = 198011 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -19, HorizontalPos = 36, TimeStamp_ms = 198380 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -38, HorizontalPos = 15, TimeStamp_ms = 198756 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -56, HorizontalPos = -5, TimeStamp_ms = 199126 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -42, HorizontalPos = -29, TimeStamp_ms = 199501 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -9, HorizontalPos = -40, TimeStamp_ms = 199868 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 18, HorizontalPos = -41, TimeStamp_ms = 200222 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 29, HorizontalPos = -26, TimeStamp_ms = 200601 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 10, HorizontalPos = -16, TimeStamp_ms = 200975 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -22, HorizontalPos = -20, TimeStamp_ms = 201350 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -36, HorizontalPos = -54, TimeStamp_ms = 201723 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -20, HorizontalPos = -88, TimeStamp_ms = 202072 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 18, HorizontalPos = -100, TimeStamp_ms = 202433 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 57, HorizontalPos = -59, TimeStamp_ms = 202800 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 72, HorizontalPos = -21, TimeStamp_ms = 203164 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 29, HorizontalPos = -19, TimeStamp_ms = 203537 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -43, HorizontalPos = -64, TimeStamp_ms = 203908 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -88, HorizontalPos = -169, TimeStamp_ms = 204279 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -99, HorizontalPos = -174, TimeStamp_ms = 204636 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -91, HorizontalPos = -171, TimeStamp_ms = 204989 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -77, HorizontalPos = -178, TimeStamp_ms = 205351 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -66, HorizontalPos = -122, TimeStamp_ms = 205721 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -47, HorizontalPos = -91, TimeStamp_ms = 206084 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -27, HorizontalPos = -85, TimeStamp_ms = 206438 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -19, HorizontalPos = -93, TimeStamp_ms = 206796 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -25, HorizontalPos = -102, TimeStamp_ms = 207160 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -37, HorizontalPos = -86, TimeStamp_ms = 207525 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -43, HorizontalPos = -53, TimeStamp_ms = 207886 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -36, HorizontalPos = -23, TimeStamp_ms = 208244 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -14, HorizontalPos = -14, TimeStamp_ms = 208610 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 9, HorizontalPos = -46, TimeStamp_ms = 208967 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 19, HorizontalPos = -83, TimeStamp_ms = 209325 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 1, HorizontalPos = -91, TimeStamp_ms = 209702 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -32, HorizontalPos = -31, TimeStamp_ms = 210074 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -60, HorizontalPos = 34, TimeStamp_ms = 210447 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -61, HorizontalPos = 72, TimeStamp_ms = 210801 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -44, HorizontalPos = 89, TimeStamp_ms = 211177 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -20, HorizontalPos = 58, TimeStamp_ms = 211548 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -1, HorizontalPos = -18, TimeStamp_ms = 211919 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 4, HorizontalPos = -94, TimeStamp_ms = 212292 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 17, HorizontalPos = -108, TimeStamp_ms = 212662 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 45, HorizontalPos = -48, TimeStamp_ms = 213037 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 76, HorizontalPos = 22, TimeStamp_ms = 213390 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 47, HorizontalPos = 45, TimeStamp_ms = 213763 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 7, HorizontalPos = 28, TimeStamp_ms = 214134 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -48, HorizontalPos = -49, TimeStamp_ms = 214501 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -80, HorizontalPos = -108, TimeStamp_ms = 214868 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -68, HorizontalPos = -137, TimeStamp_ms = 215231 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -37, HorizontalPos = -126, TimeStamp_ms = 215587 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -1, HorizontalPos = -89, TimeStamp_ms = 215952 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 3, HorizontalPos = -41, TimeStamp_ms = 216316 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -11, HorizontalPos = 6, TimeStamp_ms = 216690 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -51, HorizontalPos = 4, TimeStamp_ms = 217056 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -85, HorizontalPos = -43, TimeStamp_ms = 217430 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -72, HorizontalPos = -82, TimeStamp_ms = 217795 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -34, HorizontalPos = -122, TimeStamp_ms = 218149 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -2, HorizontalPos = -131, TimeStamp_ms = 218508 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 34, HorizontalPos = -77, TimeStamp_ms = 218872 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 57, HorizontalPos = -9, TimeStamp_ms = 219238 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 39, HorizontalPos = -5, TimeStamp_ms = 219607 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -25, HorizontalPos = -51, TimeStamp_ms = 219976 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -77, HorizontalPos = -75, TimeStamp_ms = 220342 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -86, HorizontalPos = -81, TimeStamp_ms = 220704 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -49, HorizontalPos = -93, TimeStamp_ms = 221065 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 11, HorizontalPos = -102, TimeStamp_ms = 221427 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 81, HorizontalPos = -55, TimeStamp_ms = 221785 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 114, HorizontalPos = -20, TimeStamp_ms = 222142 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 69, HorizontalPos = -21, TimeStamp_ms = 222515 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -4, HorizontalPos = -47, TimeStamp_ms = 222883 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -52, HorizontalPos = -74, TimeStamp_ms = 223258 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -78, HorizontalPos = -94, TimeStamp_ms = 223623 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -89, HorizontalPos = -111, TimeStamp_ms = 223978 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -84, HorizontalPos = -117, TimeStamp_ms = 224336 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -76, HorizontalPos = -114, TimeStamp_ms = 224701 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -73, HorizontalPos = -114, TimeStamp_ms = 225065 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -66, HorizontalPos = -106, TimeStamp_ms = 225426 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -52, HorizontalPos = -89, TimeStamp_ms = 225785 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -32, HorizontalPos = -62, TimeStamp_ms = 226146 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -20, HorizontalPos = -43, TimeStamp_ms = 226508 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -26, HorizontalPos = -51, TimeStamp_ms = 226871 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -38, HorizontalPos = -65, TimeStamp_ms = 227231 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -44, HorizontalPos = -86, TimeStamp_ms = 227591 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -31, HorizontalPos = -91, TimeStamp_ms = 227954 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -11, HorizontalPos = -52, TimeStamp_ms = 228317 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 22, HorizontalPos = 18, TimeStamp_ms = 228676 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 41, HorizontalPos = 75, TimeStamp_ms = 229035 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 27, HorizontalPos = 71, TimeStamp_ms = 229409 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 7, HorizontalPos = 18, TimeStamp_ms = 229777 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -18, HorizontalPos = -68, TimeStamp_ms = 230152 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -49, HorizontalPos = -144, TimeStamp_ms = 230519 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -60, HorizontalPos = -193, TimeStamp_ms = 230867 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -67, HorizontalPos = -189, TimeStamp_ms = 231227 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -68, HorizontalPos = -92, TimeStamp_ms = 231595 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -88, HorizontalPos = -43, TimeStamp_ms = 231955 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -87, HorizontalPos = -21, TimeStamp_ms = 232313 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -79, HorizontalPos = -7, TimeStamp_ms = 232669 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -40, HorizontalPos = 7, TimeStamp_ms = 233030 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -20, HorizontalPos = 16, TimeStamp_ms = 233399 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -42, HorizontalPos = 10, TimeStamp_ms = 233764 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -81, HorizontalPos = -17, TimeStamp_ms = 234137 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -63, HorizontalPos = -41, TimeStamp_ms = 234503 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -12, HorizontalPos = -53, TimeStamp_ms = 234853 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 30, HorizontalPos = -58, TimeStamp_ms = 235207 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 75, HorizontalPos = -55, TimeStamp_ms = 235574 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 82, HorizontalPos = -44, TimeStamp_ms = 235943 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 20, HorizontalPos = -14, TimeStamp_ms = 236309 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -63, HorizontalPos = -1, TimeStamp_ms = 236682 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -113, HorizontalPos = -14, TimeStamp_ms = 237048 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -96, HorizontalPos = -36, TimeStamp_ms = 237421 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -45, HorizontalPos = -74, TimeStamp_ms = 237778 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -10, HorizontalPos = -122, TimeStamp_ms = 238133 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 7, HorizontalPos = -138, TimeStamp_ms = 238490 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 10, HorizontalPos = -118, TimeStamp_ms = 238860 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 0, HorizontalPos = -69, TimeStamp_ms = 239233 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -1, HorizontalPos = -38, TimeStamp_ms = 239590 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -15, HorizontalPos = -14, TimeStamp_ms = 239967 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -22, HorizontalPos = -29, TimeStamp_ms = 240334 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -16, HorizontalPos = -85, TimeStamp_ms = 240687 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -5, HorizontalPos = -127, TimeStamp_ms = 241040 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 10, HorizontalPos = -124, TimeStamp_ms = 241405 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 26, HorizontalPos = -81, TimeStamp_ms = 241774 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 44, HorizontalPos = 2, TimeStamp_ms = 242136 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 30, HorizontalPos = 46, TimeStamp_ms = 242506 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 4, HorizontalPos = 44, TimeStamp_ms = 242872 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -38, HorizontalPos = -10, TimeStamp_ms = 243246 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -89, HorizontalPos = -74, TimeStamp_ms = 243608 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -107, HorizontalPos = -97, TimeStamp_ms = 243957 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -98, HorizontalPos = -124, TimeStamp_ms = 244318 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -87, HorizontalPos = -180, TimeStamp_ms = 244683 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -89, HorizontalPos = -179, TimeStamp_ms = 245048 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -94, HorizontalPos = -170, TimeStamp_ms = 245413 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -76, HorizontalPos = -113, TimeStamp_ms = 245775 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -48, HorizontalPos = -70, TimeStamp_ms = 246133 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -11, HorizontalPos = -63, TimeStamp_ms = 246492 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 22, HorizontalPos = -74, TimeStamp_ms = 246850 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 32, HorizontalPos = -114, TimeStamp_ms = 247214 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 13, HorizontalPos = -121, TimeStamp_ms = 247583 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -18, HorizontalPos = -59, TimeStamp_ms = 247950 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -52, HorizontalPos = 26, TimeStamp_ms = 248306 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -56, HorizontalPos = 83, TimeStamp_ms = 248662 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -44, HorizontalPos = 109, TimeStamp_ms = 249034 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -18, HorizontalPos = 61, TimeStamp_ms = 249403 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 23, HorizontalPos = -51, TimeStamp_ms = 249764 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 61, HorizontalPos = -138, TimeStamp_ms = 250135 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 81, HorizontalPos = -181, TimeStamp_ms = 250507 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 87, HorizontalPos = -178, TimeStamp_ms = 250859 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 82, HorizontalPos = -71, TimeStamp_ms = 251218 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 52, HorizontalPos = 28, TimeStamp_ms = 251575 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 10, HorizontalPos = 92, TimeStamp_ms = 251947 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -23, HorizontalPos = 72, TimeStamp_ms = 252319 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -62, HorizontalPos = -4, TimeStamp_ms = 252688 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -83, HorizontalPos = -93, TimeStamp_ms = 253056 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -95, HorizontalPos = -162, TimeStamp_ms = 253424 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -103, HorizontalPos = -169, TimeStamp_ms = 253782 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -117, HorizontalPos = -149, TimeStamp_ms = 254135 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -109, HorizontalPos = -152, TimeStamp_ms = 254497 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -83, HorizontalPos = -105, TimeStamp_ms = 254864 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -21, HorizontalPos = -72, TimeStamp_ms = 255232 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 40, HorizontalPos = -60, TimeStamp_ms = 255593 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 67, HorizontalPos = -71, TimeStamp_ms = 255943 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 67, HorizontalPos = -99, TimeStamp_ms = 256312 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 38, HorizontalPos = -131, TimeStamp_ms = 256684 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -2, HorizontalPos = -132, TimeStamp_ms = 257053 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -27, HorizontalPos = -82, TimeStamp_ms = 257414 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -46, HorizontalPos = -11, TimeStamp_ms = 257766 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -33, HorizontalPos = 30, TimeStamp_ms = 258126 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -17, HorizontalPos = 38, TimeStamp_ms = 258491 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 19, HorizontalPos = 5, TimeStamp_ms = 258862 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 50, HorizontalPos = -39, TimeStamp_ms = 259232 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 53, HorizontalPos = -42, TimeStamp_ms = 259598 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 22, HorizontalPos = -35, TimeStamp_ms = 259969 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -38, HorizontalPos = -23, TimeStamp_ms = 260339 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -86, HorizontalPos = -28, TimeStamp_ms = 260707 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -99, HorizontalPos = -34, TimeStamp_ms = 261066 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -77, HorizontalPos = -31, TimeStamp_ms = 261421 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -36, HorizontalPos = -24, TimeStamp_ms = 261780 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 6, HorizontalPos = -19, TimeStamp_ms = 262145 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 13, HorizontalPos = -22, TimeStamp_ms = 262511 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -29, HorizontalPos = -43, TimeStamp_ms = 262880 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -70, HorizontalPos = -55, TimeStamp_ms = 263250 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -76, HorizontalPos = -66, TimeStamp_ms = 263609 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -47, HorizontalPos = -80, TimeStamp_ms = 263957 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 7, HorizontalPos = -72, TimeStamp_ms = 264317 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 59, HorizontalPos = -33, TimeStamp_ms = 264687 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 92, HorizontalPos = 2, TimeStamp_ms = 265050 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 55, HorizontalPos = 4, TimeStamp_ms = 265420 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -43, HorizontalPos = -21, TimeStamp_ms = 265790 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -130, HorizontalPos = -61, TimeStamp_ms = 266163 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -186, HorizontalPos = -92, TimeStamp_ms = 266519 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -147, HorizontalPos = -121, TimeStamp_ms = 266871 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -183, HorizontalPos = -146, TimeStamp_ms = 267232 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -124, HorizontalPos = -141, TimeStamp_ms = 267596 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -81, HorizontalPos = -112, TimeStamp_ms = 267963 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -51, HorizontalPos = -58, TimeStamp_ms = 268326 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -24, HorizontalPos = -26, TimeStamp_ms = 268684 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -5, HorizontalPos = -22, TimeStamp_ms = 269045 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 9, HorizontalPos = -42, TimeStamp_ms = 269406 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 10, HorizontalPos = -90, TimeStamp_ms = 269780 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 1, HorizontalPos = -121, TimeStamp_ms = 270148 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -15, HorizontalPos = -89, TimeStamp_ms = 270523 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -30, HorizontalPos = -27, TimeStamp_ms = 270893 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -59, HorizontalPos = 5, TimeStamp_ms = 271244 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -91, HorizontalPos = 20, TimeStamp_ms = 271602 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -106, HorizontalPos = 5, TimeStamp_ms = 271971 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -80, HorizontalPos = -39, TimeStamp_ms = 272344 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -32, HorizontalPos = -108, TimeStamp_ms = 272708 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 12, HorizontalPos = -200, TimeStamp_ms = 273064 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 42, HorizontalPos = -200, TimeStamp_ms = 273423 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 53, HorizontalPos = -200, TimeStamp_ms = 273788 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 42, HorizontalPos = -72, TimeStamp_ms = 274153 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = 18, HorizontalPos = 39, TimeStamp_ms = 274511 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -2, HorizontalPos = 73, TimeStamp_ms = 274889 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -17, HorizontalPos = 15, TimeStamp_ms = 275258 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -34, HorizontalPos = -90, TimeStamp_ms = 275632 });
+dataSet.Enqueue(new DataPoint() { VerticalPos = -55, HorizontalPos = -163, TimeStamp_ms = 276352 });
