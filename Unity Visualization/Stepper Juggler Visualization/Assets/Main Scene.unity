@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96947666d2d4d614eb17ea035f6957a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spotPrefab: {fileID: 1818998167798212, guid: 607776b68a615e246ad243853bed10fe, type: 2}
+  spotPrefab: {fileID: 1412744341013088, guid: 0b650c6e872be59458ee202284e273ef, type: 2}
 --- !u!1 &1479558803
 GameObject:
   m_ObjectHideFlags: 0
