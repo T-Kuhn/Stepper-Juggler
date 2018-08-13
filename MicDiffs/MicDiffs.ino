@@ -55,14 +55,10 @@ void loop()
         {
             // update micFlag values.
             // only update the ones which aren't high yet for faster computation speed.
-            if (!micFlag1)
-                micFlag1 = mic1;
-            if (!micFlag2)
-                micFlag2 = mic2;
-            if (!micFlag3)
-                micFlag3 = mic3;
-            if (!micFlag4)
-                micFlag4 = mic4;
+            micFlag1 = mic1;
+            micFlag2 = mic2;
+            micFlag3 = mic3;
+            micFlag4 = mic4;
 
             // track diff between mic 1 and 2
             if (micFlag1 && !micFlag2)
